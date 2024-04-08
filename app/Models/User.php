@@ -12,32 +12,38 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    /*
+    Que campos del objeto pueden ser manipulados
+    a travez de este modelo
+    */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nombre',
+        'correo',
+        'clave',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    /*
+    Que campos no se van a poder manipular a travez del modelo
+    no es necesario colocarlos
+    (por default si no los pones en $fillable se colocan en $guarded)
+
+    protected $guarded = [
+
+    ];
+    */
+
+    /*
+    Oculta los datos cuando queremos mostrarlos,
+    por ejemplo si se hace una api este metodo oculta estos datos
+    */
     protected $hidden = [
-        'password',
+        'clave',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+    /*
+    Al momento de manipular un valor, debe ser de tal tipo de dato
+    */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
