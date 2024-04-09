@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\facades\Auth;
 
 class checkRole
@@ -12,7 +10,7 @@ class checkRole
     public function handle($request, Closure $next, $role)
     {
         if (!Auth::check()) {
-            return redirect('/login');
+            return redirect()->route("getLogin");
         }
 
         $user = Auth::user();

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 
 class LoginController extends Controller
@@ -11,9 +10,9 @@ class LoginController extends Controller
     public function show()
     {
         if (Auth::check()) {
-            return redirect('/home');
+            return $this->redirectUser();
         }
-        return view("auth.login");
+        return view('auth.login');
     }
 
     public function login(UserRequest $request)
@@ -25,16 +24,20 @@ class LoginController extends Controller
                 'errorCredentials' => 'Correo electronico o contraseña incorrecta',
             ]);
         }
+        return $this->redirectUser();
+    }
 
-        $user = Auth::user();
-
-        switch ($user->role) {
+    public function redirectUser()
+    {
+        switch (Auth::user()->role) {
             case env('ROLE_ADMIN'):
-                return redirect()->intended('home');
+                return redirect()->route('home');
             case env('ROLE_PRESIDENT'):
-                return redirect()->intended('homesito');
+                return redirect()->route('homesito');
             default:
-                return redirect('/login');
+                return back()->withErrors([
+                    'errorCredentials' => 'Usuario registrado pero sin rol',
+                ]);
         }
     }
 }

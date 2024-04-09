@@ -1,7 +1,7 @@
-@extends('layouts.html');
+@extends('layouts.html')
 
-@section('tittle','Home')
+@section('tittle', 'Home')
 
 @section('content')
-<h1>Hola admin</h1>
+    <h1>Hola admin</h1>
 @endsection

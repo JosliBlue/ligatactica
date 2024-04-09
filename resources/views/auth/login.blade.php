@@ -4,13 +4,13 @@
 
 @section('content')
 
-    <form action="/login" method="post">
+    <form action="{{ route('postLogin') }}" method="post">
         @csrf
-        Nombre o correo electronico
-        <input type="email" name="email" id="" value="{{ old('email') }}">
+        <label for="email">Nombre o correo electronico</label>
+        <input type="email" name="email" id="email" >
 
-        Contraseña
-        <input type="password" name="password" id="" value="{{ old('password') }}">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id="password">
         @if ($errors->has('errorCredentials'))
             <p class="error-message">
                 {{ $errors->first('errorCredentials') }}
