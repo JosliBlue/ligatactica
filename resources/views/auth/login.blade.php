@@ -3,7 +3,7 @@
 @section('tittle', 'Login')
 
 @section('styles')
-@vite('resources/css/app.css')
+<!-- @vite('resources/css/tailwind.css') -->
 @endsection
 
 @section('content')
