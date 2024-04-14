@@ -9,16 +9,17 @@ class checkRole
 {
     public function handle($request, Closure $next, $role)
     {
-        if (!Auth::check()) {
-            return redirect()->route("getLogin");
+        if (!Auth::check()) { // check if user account dont exists in cockies
+            return redirect()->route('getLogin');
         }
 
         $user = Auth::user();
 
-        if ($user && $user->role === $role) {
-            return $next($request);
+        if (!$user || $user->role !== $role) { // check if user account isnt "role"
+            return redirect()->route('getLogin');
+            //abort(403, 'Acceso denegado');
         }
 
-        abort(403, 'Acceso denegado');
+        return $next($request);
     }
 }

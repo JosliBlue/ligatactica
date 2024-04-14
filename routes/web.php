@@ -13,3 +13,8 @@ Route::group(['middleware' => ['role:' . env('ROLE_ADMIN')]], function () {
 Route::group(['middleware' => ['role:' . env('ROLE_PRESIDENT')]], function () {
     Route::view('/homesito', 'homesito')->name('homesito');
 });
+
+
+Route::fallback(function () { // If input bad route, redirect to getLogin
+    return redirect()->route('getLogin');
+});
