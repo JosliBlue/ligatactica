@@ -2,6 +2,10 @@
 
 @section('tittle', 'Login')
 
+@section('styles')
+@vite('resources/css/app.css')
+@endsection
+
 @section('content')
 
     <form action="{{ route('postLogin') }}" method="post">
@@ -17,6 +21,7 @@
             </p>
         @endif
         <input type="submit" value="Login">
+
 
     </form>
 
