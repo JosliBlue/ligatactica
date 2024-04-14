@@ -1,3 +1,8 @@
+<!-- imports for component -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@vite('resources/css/components/sweetAlert.css')
+
+<!-- component -->
 <script>
     Swal.fire({
         toast: true,

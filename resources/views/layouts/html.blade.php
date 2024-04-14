@@ -10,7 +10,7 @@
     @yield('imports')
 </head>
 
-<body>
+<body class="hidden">
     @yield('content')
 </body>
 

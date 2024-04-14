@@ -5,37 +5,36 @@
 @section('imports')
     @vite('resources/css/complements/all.css')
 
-    <!-- Import script and css of SWEETALERT component -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @vite('resources/css/components/sweetAlert.css')
-
     @vite('resources/css/login.css')
     @vite('resources/js/login.js')
 @endsection
 
-
 @section('content')
+
+    @if (!$errors->has('errorCredentials'))
+        @component('_components.preload')
+        @endcomponent
+    @endif
 
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form>
                 <h1>Sobre nosotros</h1>
                 <!--
-                    <div class="social-icons">
-                        <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
+                <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
                 -->
-
             </form>
         </div>
         <div class="form-container sign-in">
             <form action="{{ route('postLogin') }}" method="post">
                 @csrf
                 <h1>Iniciar sesion</h1>
-
+                <br><br><br>
                 <label for="email">Correo electronico</label>
                 <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico">
                 <label for="password">Contraseña</label>
@@ -48,6 +47,7 @@
                         @endslot
                     @endcomponent
                 @endif
+                <br><br>
                 <input type="submit" value="Iniciar sesion">
             </form>
         </div>
