@@ -9,30 +9,22 @@ class LoginController extends Controller
 {
     public function show()
     {
-        if (Auth::check()) { // check if user account exists in cockies
-            return $this->redirectUser();
+        // check if user account exists in cockies
+        if (Auth::check()) {
+            return redirect()->route('home');
         }
         return view('auth.login');
     }
 
     public function login(UserRequest $request)
     {
-        if (!Auth::attempt($request->getCredentials())) { // check account credentials
+        // check if account credentials are bad
+        if (!Auth::attempt($request->getCredentials())) {
             return back()->withErrors([
                 'errorCredentials' => 'Correo electronico o contraseña incorrecta',
             ]);
         }
-        return $this->redirectUser();
+        return redirect()->route('home');
     }
 
-    public function redirectUser()
-    {
-        switch (Auth::user()->role) {
-            case env('ROLE_ADMIN'):
-                return redirect()->route('home');
-            case env('ROLE_PRESIDENT'):
-                return redirect()->route('homesito');
-                // no default because column "role" in db only supports president and admin :3
-        }
-    }
 }
