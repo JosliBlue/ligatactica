@@ -2,27 +2,31 @@
 
 @section('tittle', 'Login')
 
-@section('styles')
-<!-- @vite('resources/css/tailwind.css') -->
+@section('imports')
+    <!-- Import script and css of SWEETALERT component -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @vite('resources/css/components/sweetAlert.css')
 @endsection
+
 
 @section('content')
 
     <form action="{{ route('postLogin') }}" method="post">
         @csrf
         <label for="email">Nombre o correo electronico</label>
-        <input type="email" name="email" id="email" >
+        <input type="email" name="email" id="email">
 
         <label for="password">Contraseña</label>
         <input type="password" name="password" id="password">
         @if ($errors->has('errorCredentials'))
-            <p class="error-message">
-                {{ $errors->first('errorCredentials') }}
-            </p>
+            @component('_components.alert')
+                @slot('icon', 'error')
+                @slot('message')
+                    {{ $errors->first('errorCredentials') }}
+                @endslot
+            @endcomponent
         @endif
         <input type="submit" value="Login">
 
-
     </form>
-
 @endsection
