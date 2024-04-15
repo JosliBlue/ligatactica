@@ -1,18 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    /*background-color: #c9d6ff;*/
-    /*background: linear-gradient(to right, #e2e2e2, #c9d6ff);*/
     background-image: url('/public/img/Fondo3.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    backdrop-filter: brightness(0.8) blur(5px);
+    backdrop-filter: brightness(0.15) blur(10px);
 
     display: flex;
     align-items: center;
@@ -86,6 +78,11 @@ body {
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
+}
+
+.container .labels{
+    width: 100%;
+    margin-top: 20px;
 }
 
 .container input {
@@ -168,13 +165,13 @@ body {
     height: 100%;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
-    border-radius: 150px 0 0 100px;
+    border-radius: 0px 0 0 0px;
     z-index: 1000;
 }
 
 .container.active .toggle-container {
-    transform: translateX(-100%);
-    border-radius: 0 150px 100px 0;
+    transform: translateX(-101%);
+    border-radius: 0 0px 0px 0;
 }
 
 .toggle {
@@ -183,7 +180,7 @@ body {
 
     background: #000000;
     background: -webkit-linear-gradient(to left, #0f9b0f, #000000);
-    background: linear-gradient(to right, #0f9b0f, #000000);
+    background: linear-gradient(to left, #0f9b0f, #000000);
     /*
     background: #870000;
     background: -webkit-linear-gradient(to right, #190A05, #870000);
@@ -196,7 +193,7 @@ body {
     height: 100%;
     width: 200%;
     transform: translateX(0);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.6s ease-in-out;
 }
 
 .container.active .toggle {
