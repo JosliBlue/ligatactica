@@ -1,18 +1,16 @@
 @extends('layouts.html')
 
-@section('tittle', 'Inicio')
+@section('tittle', 'Partidos | Admin')
 
 @section('imports')
     @vite('resources/css/complements/all.css')
-    @vite('resources/css/home.css')
 @endsection
 
 @section('content')
     @component('_components.preload')
     @endcomponent
 
-    @component('_components.header')
+    @component('_components.admin_header')
     @endcomponent
-    <h1>Hola {{ Auth::user()->nombre }}</h1>
 
 @endsection

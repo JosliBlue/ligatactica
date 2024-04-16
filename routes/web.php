@@ -10,14 +10,17 @@ Route::get('/logOut', [LoginController::class, 'logOut'])->name('logOut');
 // autenticated users routes (presidents and admins)
 Route::group(['middleware' => ['checkSession']], function () {
     Route::view('/home', 'home')->name('home');
-    Route::view('/home2', 'home2')->name('homesito2');
-    Route::view('/home3', 'home3')->name('homesato3');
-    Route::view('/home4', 'home4')->name('homexd4');
+    Route::view('/my_team', 'my_team')->name('my_team');
+    Route::view('/calendar', 'calendar')->name('calendar');
+    Route::view('/profile','profile')->name('profile');
 });
 
 // only admin routes
 Route::group(['middleware' => ['checkAdminRole']], function () {
     Route::view('/admin_home', 'admin.home')->name('admin_home');
+    Route::view('/admin_teams', 'admin.teams')->name('admin_teams');
+    Route::view('/admin_players', 'admin.players')->name('admin_players');
+    Route::view('/admin_games', 'admin.games')->name('admin_games');
 });
 
 // if you enter a non-existing route you will return to login

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-@vite('resources/css/components/header.css')
+@vite('resources/css/components/admin_header.css')
 
 <!-- navbar -->
 <header>
@@ -11,7 +11,7 @@
             <div class="imgLogo"></div>
             <p>{{ env('NOMBRE_LIGA') }}</p>
         </div>
-        @component('_components.headerOptions', ['type' => 'nav-link_p'])
+        @component('_components.admin_headerOptions', ['type' => 'nav-link_p'])
         @endcomponent
 
         <div class="toggle_btn">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="dropdown_menu">
-        @component('_components.headerOptions', ['type' => 'nav-link'])
+        @component('_components.admin_headerOptions', ['type' => 'nav-link'])
         @endcomponent
     </div>
 
@@ -73,6 +73,7 @@
                 });
             });
         });
+
 
         const toggleBtn = document.querySelector('.toggle_btn')
         const toggleBtnIcon = document.querySelector('.toggle_btn i')

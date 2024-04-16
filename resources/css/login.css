@@ -1,16 +1,17 @@
 body {
-    background-image: url('/public/img/Fondo3.jpg');
+    background-image: url('/public/img/b_login.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    backdrop-filter: brightness(0.15) blur(10px);
+    backdrop-filter: brightness(0.50) blur(10px);
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    color: #fff;
 }
 
 .imgLogo {
@@ -19,11 +20,10 @@ body {
     height: 200px;
     background-size: cover;
     background-position: center;
-    filter: grayscale(100%) invert(1) brightness(1.2);
 }
 
 .container {
-    background-color: #fff;
+    background-color: #1A1A1A;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -52,17 +52,23 @@ body {
 }
 
 .container button {
-    background-color: #512da8;
+    background-color: transparent;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
-    border: 1px solid transparent;
-    border-radius: 8px;
+    border: 1px solid #479b0f;
+    border-radius: 5px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.container button:hover {
+    color: #479b0f;
+    transition: all 0.2s ease-in-out;
 }
 
 .container button.hidden {
@@ -70,30 +76,40 @@ body {
     border-color: #fff;
 }
 
+.container button.hidden:hover {
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
 .container form {
-    background-color: #fff;
+    background-color: #1A1A1A;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
+    color: #fff;
+
 }
 
-.container .labels{
+.container .labels {
     width: 100%;
     margin-top: 20px;
+
 }
 
 .container input {
-    background-color: #eee;
-    border: none;
+    background-color: #ffffff1b;
+    border: solid 1px #fff;
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
     outline: none;
+    color: #fff;
+
 }
 
 .form-container {
@@ -178,9 +194,9 @@ body {
 
     height: 100%;
 
-    background: #000000;
-    background: -webkit-linear-gradient(to left, #0f9b0f, #000000);
-    background: linear-gradient(to left, #0f9b0f, #000000);
+    background-color: #1A1A1A;
+    background: -webkit-linear-gradient(to left, #479b0f, #000000);
+    background: linear-gradient(to left, #479b0f, #000000);
     /*
     background: #870000;
     background: -webkit-linear-gradient(to right, #190A05, #870000);
@@ -235,7 +251,7 @@ body {
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {
     .container {
-        background-color: #fff;
+        background-color: #1A1A1A;
         border-radius: 30px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
         position: relative;

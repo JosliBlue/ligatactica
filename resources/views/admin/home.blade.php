@@ -2,10 +2,15 @@
 
 @section('tittle', 'Home | Admin')
 
+@section('imports')
+    @vite('resources/css/complements/all.css')
+@endsection
+
 @section('content')
-    <h1>Hola admin</h1>
-    <div class="alert alert-success">
-        <a href="{{ route('home') }}">Gestionar mi equipo</a>
-    </div>
+    @component('_components.preload')
+    @endcomponent
+
+    @component('_components.admin_header')
+    @endcomponent
 
 @endsection

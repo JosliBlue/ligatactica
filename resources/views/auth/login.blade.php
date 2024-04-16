@@ -57,8 +57,8 @@
                         @endslot
                     @endcomponent
                 @endif
-            
-                <input type="submit" value="Iniciar sesion">
+
+                <button>Iniciar sesion</button>
             </form>
         </div>
         <div class="toggle-container">
