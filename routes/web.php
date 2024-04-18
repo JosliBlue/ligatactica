@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LoginController::class, 'show'])->name('getLogin');
-Route::post('/', [LoginController::class, 'login'])->name('postLogin');
-Route::get('/logOut', [LoginController::class, 'logOut'])->name('logOut');
+Route::get('/', [SessionController::class, 'show'])->name('getLogin');
+Route::post('/', [SessionController::class, 'login'])->name('postLogin');
+Route::get('/logOut', [SessionController::class, 'logOut'])->name('logOut');
 
 // autenticated users routes (presidents and admins)
 Route::group(['middleware' => ['checkSession']], function () {

@@ -5,6 +5,8 @@
 @section('imports')
     @vite('resources/css/complements/all.css')
     @vite('resources/css/calendar.css')
+    @vite('resources/css/complements/tailwind.css')
+
 @endsection
 
 @section('content')

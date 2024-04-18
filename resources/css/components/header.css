@@ -3,15 +3,17 @@ header {
     background-color: rgb(0, 0, 0);
     padding: 0 1rem;
     border-bottom: solid 1px #ffffff34;
+    position: sticky;
+    top: 0;
 }
 
-.logo{
+.logo {
     display: flex;
     gap: 5px;
     align-items: center;
 }
 
-.imgLogo{
+.imgLogo {
     background-image: url('/public/img/selloLiga.png');
     width: 40px;
     height: 40px;
@@ -117,20 +119,34 @@ a {
     top: 60px;
     height: 0;
     width: 300px;
-    background: rgba(189, 189, 189, 0.164);
-    backdrop-filter: brightness(0.8) blur(13px);
+    background-color: #1a1a1ab9;
+    backdrop-filter: brightness(0.6) blur(13px);
     border-radius: 10px;
     overflow: hidden;
     transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.dropdown_menu .action_btns a i{
+    align-self: center;
+}
+
+.dropdown_menu .action_btns .action_btn {
+    margin: 13px auto;
+}
+
+.dropdown_menu .links li {
+    padding: 8px 0;
+
+}
+
 /* THIS SETS THE HEIGHT OF THE DROPDOWN MENU */
 .dropdown_menu.open {
-    height: 330px;
+    height: calc(100vh - 80px);
 }
 
 .dropdown_menu li {
-    padding: 0.7rem;
+
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;

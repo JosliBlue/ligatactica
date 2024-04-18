@@ -16,5 +16,5 @@ nav-link => para los del header tablet y android
     @endauth
 
     <a href="{{ route('profile') }}" class="action_btn aby"><i class="fa-solid fa-user"></i> MI PERFIL</a>
-    <a href="{{ route('logOut') }}" class="action_btn abr"><i class="fa-solid fa-right-from-bracket"></i> SALIR</a>
+    <a href="{{ route('logOut') }}" class="action_btn abr"><i class="fa-solid fa-right-from-bracket"></i>SALIR</a>
 </div>
