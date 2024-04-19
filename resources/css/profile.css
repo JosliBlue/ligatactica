@@ -1,0 +1,66 @@
+.contenido_padre {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+    padding: 0;
+}
+
+.email:hover {
+    cursor: no-drop
+}
+
+form .grupo_inputs {
+    margin-bottom: 40px;
+}
+
+.boton_container.flex {
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+form .grupo_inputs i,
+form .grupo_inputs svg {
+    font-size: 1.2rem;
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 14px;
+    color: #ffffff75;
+    text-align: center;
+    z-index: -1;
+}
+
+button {
+    background-color: transparent;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.6rem 45px;
+    border: 1px solid #e8a107;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+}
+
+button:hover {
+    color: #e8a107;
+    transition: all 0.2s ease-in-out;
+}
+
+.contenedor {
+    margin: 15px 0;
+    border: solid 1px #ffffff34;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 7px 7px 10px rgba(255, 255, 255, 0.078);
+}
+
+@media (max-width: 950px) {
+    .contenido_padre {
+        display: block;
+    }
+}

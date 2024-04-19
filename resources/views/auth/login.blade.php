@@ -15,23 +15,33 @@
 
 @section('content')
 
-    @if (!$errors->has('errorCredentials'))
+    @if (!session('errorMessage'))
         @component('_components.preload')
         @endcomponent
     @endif
+
+    @if (session('errorMessage'))
+        @component('_components.sweetAlert')
+            @slot('icon', 'error')
+            @slot('message')
+                {{ session('errorMessage') }}
+            @endslot
+        @endcomponent
+    @endif
+    
 
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form>
                 <h1>Sobre nosotros</h1>
                 <!--
-                    <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                    -->
+                            <div class="social-icons">
+                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                            -->
             </form>
         </div>
         <div class="form-container sign-in">
@@ -40,23 +50,19 @@
                 <h1>Iniciar sesion</h1>
 
                 <div class="labels">
-                    <i class="fa-solid fa-user"></i>
                     <label for="email">Correo electronico</label>
+                    <div class="grupo_input">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico">
+                    </div>
                 </div>
-                <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico">
                 <div class="labels">
-                    <i class="fa-solid fa-lock"></i>
                     <label for="password">Contraseña</label>
+                    <div class="grupo_input">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña">
+                    </div>
                 </div>
-                <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña">
-                @if ($errors->has('errorCredentials'))
-                    @component('_components.sweetAlert')
-                        @slot('icon', 'error')
-                        @slot('message')
-                            {{ $errors->first('errorCredentials') }}
-                        @endslot
-                    @endcomponent
-                @endif
 
                 <button>Iniciar sesion</button>
             </form>

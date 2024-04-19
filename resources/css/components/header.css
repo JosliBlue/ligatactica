@@ -68,11 +68,12 @@ a {
 
 .navbar .toggle_btn {
     color: #fff;
-    font-size: 1.5rem;
     cursor: pointer;
     display: none;
 }
-
+.navbar .toggle_btn i {
+    font-size: 1.5rem;
+}
 .action_btns .action_btn {
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -124,6 +125,7 @@ a {
     border-radius: 10px;
     overflow: hidden;
     transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 9999;
 }
 
 .dropdown_menu .action_btns a i{

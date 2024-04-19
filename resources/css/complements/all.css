@@ -5,9 +5,22 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
+    font-size: 1rem;
 }
 
 body {
     background-color: black;
     color: #fff;
+}
+
+
+.contenido_padre {
+    max-width: 80%;
+    margin: auto;
+}
+
+@media (max-width: 950px) {
+    .contenido_padre {
+        max-width: 90%;
+    }
 }

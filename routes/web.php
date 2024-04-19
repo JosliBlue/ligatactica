@@ -13,6 +13,9 @@ Route::group(['middleware' => ['checkSession']], function () {
     Route::view('/my_team', 'my_team')->name('my_team');
     Route::view('/calendar', 'calendar')->name('calendar');
     Route::view('/profile','profile')->name('profile');
+
+    Route::post('/updatePassword', [SessionController::class, 'updatePassword'])->name('updatePassword');
+    Route::post('/updateNombre', [SessionController::class, 'updateNombre'])->name('updateNombre');
 });
 
 // only admin routes

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewPassRequest;
+use App\Http\Requests\NombreRequest;
 use App\Http\Requests\UserRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\facades\Session;
 
 class SessionController extends Controller
@@ -21,18 +25,48 @@ class SessionController extends Controller
     {
         // check if account credentials are bad
         if (!Auth::attempt($request->getCredentials())) {
-            return back()->withErrors([
-                'errorCredentials' => 'Correo electronico o contraseña incorrecta',
-            ]);
+            Session::flash('errorMessage', 'Correo electronico o contraseña incorrectas');
+            return back();
         }
         return redirect()->route('home');
     }
 
-    public function logOut(){
+    public function logOut()
+    {
         Session::flush();
         Auth::logout();
 
         return redirect()->route('getLogin');
     }
 
+    public function updateNombre(NombreRequest $request)
+    {
+        $nuevoNombre = $request->nombre;
+        $request->user()->update([
+            'nombre' => $nuevoNombre,
+        ]);
+        Session::flash('successMessage', 'Nombre actualizado');
+        return back();
+    }
+    public function updatePassword(NewPassRequest $request)
+    {
+
+        $currentPassword = $request->current_password;
+        $newPassword = $request->new_password;
+
+        if (!Hash::check($currentPassword, Auth::user()->password)) {
+            Session::flash('errorMessage', 'Contraseña actual incorrecta');
+            return back();
+        }
+        if ($request->new_password != $request->pass_confirm) {
+            Session::flash('errorMessage', 'Confirme bien la contraseña por favor');
+            return back();
+        }
+
+        $request->user()->update([
+            'password' => Hash::make($newPassword),
+        ]);
+
+        return redirect()->route('logOut');
+    }
 }
