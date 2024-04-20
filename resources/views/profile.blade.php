@@ -37,86 +37,91 @@
     @endif
 
     <div class="contenido_padre">
-        <div class="contenedor">
 
-            <form action="{{ route('updateNombre') }}" method="post">
-                @csrf
-                @method('PUT')
+        @component('_components._partials.card')
+            @slot('card_content')
+                <form action="{{ route('updateNombre') }}" method="post">
+                    @csrf
+                    @method('PUT')
 
-                <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                    Nombre
-                </label>
-                <div class="grupo_inputs">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="nombre" name="nombre" id="nombre" value="{{ Auth::user()->nombre }}"
-                        placeholder="Ingresa un nombre de usuario" required
-                        class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
-                </div>
-                <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                    Correo Electronico
-                </label>
-                <div class="grupo_inputs">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="text" name="text" id="text" value="{{ Auth::user()->email }}" disabled
-                        class="email w-full rounded-md border border-stroke dark:border-dark-3 py-[10px] px-5 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
+                    <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                        Nombre
+                    </label>
+                    <div class="grupo_inputs">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="nombre" name="nombre" id="nombre" value="{{ Auth::user()->nombre }}"
+                            placeholder="Ingresa un nombre de usuario" required
+                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                    </div>
+                    <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                        Correo Electronico
+                    </label>
+                    <div class="grupo_inputs">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" name="text" id="text" value="{{ Auth::user()->email }}" disabled
+                            class="email w-full rounded-md border border-stroke dark:border-dark-3 py-[10px] px-5 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
 
-                </div>
-                <div class="boton_container flex">
-                    <button id="buttonNombre">Cambiar Nombre</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="contenedor">
-            <form id="passwordForm" action="{{ route('updatePassword') }}" method="post">
-                @csrf
-                @method('PUT')
+                    </div>
+                    <div class="boton_container flex">
+                        <button id="buttonNombre">Cambiar Nombre</button>
+                    </div>
+                </form>
+            @endslot
+        @endcomponent
 
 
-                <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                    Contraseña Actual
-                </label>
-                <div class="grupo_inputs">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" name="current_password" id="current_password"
-                        placeholder="Ingresa tu contraseña actual" required
-                        class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
-                </div>
-                <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                    Nueva contraseña
-                </label>
-                <div class="grupo_inputs">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" name="new_password" id="new_password" placeholder="Ingresa tu nueva contraseña"
-                        value="{{ old('new_password') }}" required
-                        class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
-                </div>
-                <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                    Confirmar nueva contraseña
-                </label>
-                <div class="grupo_inputs">
-                    <i class="fa-solid fa-lock"></i>
+        @component('_components._partials.card')
+            @slot('card_content')
+                <form id="passwordForm" action="{{ route('updatePassword') }}" method="post">
+                    @csrf
+                    @method('PUT')
 
-                    <input type="password" name="pass_confirm" id="pass_confirm" placeholder="Confirma tu nueva contraseña"
-                        required
-                        class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
-                </div>
-                <div class="boton_container flex">
-                    <button id="submitButton" type="submit">Cambiar contraseña</button>
-                </div>
-            </form>
-        </div>
+
+                    <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                        Contraseña Actual
+                    </label>
+                    <div class="grupo_inputs">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="current_password" id="current_password"
+                            placeholder="Ingresa tu contraseña actual" required
+                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                    </div>
+                    <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                        Nueva contraseña
+                    </label>
+                    <div class="grupo_inputs">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="new_password" id="new_password" placeholder="Ingresa tu nueva contraseña"
+                            value="{{ old('new_password') }}" required
+                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                    </div>
+                    <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                        Confirmar nueva contraseña
+                    </label>
+                    <div class="grupo_inputs">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input type="password" name="pass_confirm" id="pass_confirm" placeholder="Confirma tu nueva contraseña"
+                            required
+                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                    </div>
+                    <div class="boton_container flex">
+                        <button id="submitButton" type="submit">Cambiar contraseña</button>
+                    </div>
+                </form>
+            @endslot
+        @endcomponent
     </div>
 
     <script>
         const botonNombre = document.getElementById('buttonNombre');
         const inputNombre = document.getElementById('nombre');
 
-        inputNombre.addEventListener('keyup', function(){
-            if(inputNombre.value === ''){
+        inputNombre.addEventListener('keyup', function() {
+            if (inputNombre.value === '') {
                 botonNombre.disabled = true;
                 botonNombre.style.cursor = "no-drop";
-            }else{
+            } else {
                 botonNombre.disabled = false;
                 botonNombre.style.cursor = "pointer";
             }
