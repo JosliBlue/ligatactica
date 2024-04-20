@@ -19,6 +19,8 @@ class User extends Authenticatable
         'nombre',
         'email',
         'password',
+        'date_birth',
+        'status'
     ];
 
     /*
@@ -44,6 +46,9 @@ class User extends Authenticatable
     Al momento de manipular un valor, debe ser de tal tipo de dato
     */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        /*
+        'date_birth' => 'date',
+        'status' => 'bool',
+        */
     ];
 }
