@@ -28,37 +28,38 @@
             @endslot
         @endcomponent
     @endif
-    
+
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
-                <h1>Sobre nosotros</h1>
-                <!--
-                            <div class="social-icons">
-                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                            -->
-            </form>
+            <p class="titulito">Sobre nosotros</p>
+            <p class="liga_description">En {{ env('NOMBRE_LIGA') }}, creemos que el éxito reside en el trabajo en equipo.<br><br>
+                Somos un grupo apasionado y
+                dedicado de personas comprometidas, unidos por el objetivo común de buena comunicacion para fomentar el
+                deporte sano entre conocidos y amigos<br><br>
+                Visitanos en nuestras redes sociales:
+            </p>
+            <div class="social-icons">
+                <a href="#" class="icon gulugulu"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon facebuk"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon githab"><i class="fa-brands fa-github"></i></a>
+            </div>
         </div>
         <div class="form-container sign-in">
             <form action="{{ route('postLogin') }}" method="post">
                 @csrf
-                <h1>Iniciar sesion</h1>
+                <p class="titulito">Iniciar sesion</p>
 
                 <div class="labels">
                     <label for="email">Correo electronico</label>
-                    <div class="grupo_input">
+                    <div class="grupo_inputs">
                         <i class="fa-solid fa-envelope"></i>
                         <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico">
                     </div>
                 </div>
                 <div class="labels">
                     <label for="password">Contraseña</label>
-                    <div class="grupo_input">
+                    <div class="grupo_inputs">
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña">
                     </div>
@@ -74,7 +75,7 @@
                     <button class="hidden" id="login">Regresar</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>{{ env('NOMBRE_LIGA') }}</h1>
+                    <p class="titulito">{{ env('NOMBRE_LIGA') }}</p>
                     <p>Bienvenido, accede para gestionar tu equipo</p>
                     <button class="hidden" id="register">Saber màs</button>
                 </div>

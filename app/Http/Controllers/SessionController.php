@@ -8,7 +8,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\facades\Session;
+use Illuminate\Support\Facades\Session;
 
 class SessionController extends Controller
 {
@@ -50,7 +50,6 @@ class SessionController extends Controller
     }
     public function updatePassword(NewPassRequest $request)
     {
-
         $currentPassword = $request->current_password;
         $newPassword = $request->new_password;
 

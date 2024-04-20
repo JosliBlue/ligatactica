@@ -5,8 +5,10 @@
 @section('imports')
     @vite('resources/css/complements/all.css')
     @vite('resources/css/complements/tailwind.css')
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite('resources/css/components/sweetAlert.css')
+    @vite('resources/css/components/confirmAlert.css')
 
     @vite('resources/css/profile.css')
 @endsection
@@ -39,6 +41,7 @@
 
             <form action="{{ route('updateNombre') }}" method="post">
                 @csrf
+                @method('PUT')
 
                 <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
                     Nombre
@@ -67,6 +70,8 @@
         <div class="contenedor">
             <form id="passwordForm" action="{{ route('updatePassword') }}" method="post">
                 @csrf
+                @method('PUT')
+
 
                 <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
                     Contraseña Actual
@@ -183,7 +188,7 @@
                     customClass: {
                         confirmButton: "btn btn-success",
                         cancelButton: "btn btn-danger",
-                        popup: "dark-mode"
+                        popup: "confirmAlert"
                     },
                     buttonsStyling: false
                 });

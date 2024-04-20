@@ -40,6 +40,11 @@ body {
     margin: 20px 0;
 }
 
+.container .titulito{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .container span {
     font-size: 120px;
 }
@@ -49,6 +54,31 @@ body {
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
+}
+
+form .grupo_inputs {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+form .grupo_inputs input{
+    padding: 12px 0 12px 42px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+form .grupo_inputs i,
+form .grupo_inputs svg {
+    font-size: 1.2rem;
+    position: absolute;
+    margin-left: 16px;
+    margin-top: 21px;
+    color: #ffffff75;
+    text-align: center;
+
+}
+form .grupo_inputs input:focus{
+    background-color: #ffffff1b;
+    transition: all 0.1s ease-in;
 }
 
 .container button {
@@ -81,7 +111,12 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.container form {
+.liga_description{
+    text-align: justify;
+}
+
+.container form, .form-container.sign-up {
+    background-color: #479b0f;
     background-color: #1A1A1A;
     display: flex;
     align-items: center;
@@ -99,7 +134,7 @@ body {
 }
 
 .container input {
-    background-color: #ffffff1b;
+    background-color: transparent;
     border: solid 1px #fff;
     margin: 8px 0;
     padding: 10px 15px;
@@ -158,7 +193,7 @@ body {
 }
 
 .social-icons {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .social-icons a {
@@ -170,6 +205,25 @@ body {
     margin: 0 3px;
     width: 40px;
     height: 40px;
+}
+
+.gulugulu:hover{
+    color: rgb(236, 255, 23);
+    border-color: rgb(236, 255, 23);
+    transition: all 0.2s ease-in-out;
+
+}
+.facebuk:hover{
+    color: rgb(64, 128, 255);
+    border-color: rgb(64, 128, 255);
+    transition: all 0.2s ease-in-out;
+
+}
+.githab:hover{
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    transition: all 0.2s ease-in-out;
+
 }
 
 .toggle-container {
@@ -248,7 +302,7 @@ body {
 }
 
 /* Media Query for Responsive Design */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 750px) {
     .container {
         background-color: #1A1A1A;
         border-radius: 30px;
@@ -256,7 +310,7 @@ body {
         position: relative;
         overflow: hidden;
         width: 768px;
-        max-width: 80%;
+        max-width: 90%;
         min-height: 480px;
     }
 

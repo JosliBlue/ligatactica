@@ -29,7 +29,10 @@ form .grupo_inputs svg {
     text-align: center;
     z-index: -1;
 }
-
+form .grupo_inputs input:focus{
+    background-color: #ffffff1b;
+    transition: all 0.1s ease-in;
+}
 button {
     background-color: transparent;
     color: #fff;

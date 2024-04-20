@@ -9,7 +9,7 @@
     <div class="navbar">
         <div class="logo">
             <div class="imgLogo"></div>
-            <p>{{ env('NOMBRE_LIGA') }}</p>
+            <h1>{{ env('NOMBRE_LIGA') }}</h1>
         </div>
         @component('_components.admin_headerOptions', ['type' => 'nav-link_p'])
         @endcomponent
