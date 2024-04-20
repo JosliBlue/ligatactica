@@ -1,0 +1,23 @@
+
+.confirmAlert {
+    border-radius: 10px;
+    background-color: #1A1A1A;
+    color: white;
+    box-shadow: 7px 7px 10px rgba(255, 255, 255, 0.078);
+}
+
+.confirmAlert .btn{
+    margin: 0 10px;
+}
+.confirmAlert .btn.btn-danger{
+    border-color: #e80729;
+}
+.confirmAlert .btn.btn-danger:hover{
+    color: #e80729;
+}
+.confirmAlert .btn.btn-success{
+    border-color: #E1FF57;
+}
+.confirmAlert .btn.btn-success:hover{
+    color: #E1FF57;
+}

@@ -1,18 +1,32 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', [SessionController::class, 'show'])->name('getLogin');
+Route::post('/', [SessionController::class, 'login'])->name('postLogin');
+Route::get('/logOut', [SessionController::class, 'logOut'])->name('logOut');
 
-Route::get('/', function () {
-    return view('welcome');
+// autenticated users routes (presidents and admins)
+Route::group(['middleware' => ['checkSession']], function () {
+    Route::view('/home', 'home')->name('home');
+    Route::view('/my_team', 'my_team')->name('my_team');
+    Route::view('/calendar', 'calendar')->name('calendar');
+    Route::view('/profile','profile')->name('profile');
+
+    Route::put('/updatePassword', [SessionController::class, 'updatePassword'])->name('updatePassword');
+    Route::put('/updateNombre', [SessionController::class, 'updateNombre'])->name('updateNombre');
+});
+
+// only admin routes
+Route::group(['middleware' => ['checkAdminRole']], function () {
+    Route::view('/admin_home', 'admin.home')->name('admin_home');
+    Route::view('/admin_teams', 'admin.teams')->name('admin_teams');
+    Route::view('/admin_players', 'admin.players')->name('admin_players');
+    Route::view('/admin_games', 'admin.games')->name('admin_games');
+});
+
+// if you enter a non-existing route you will return to login
+Route::fallback(function () {
+    return redirect()->route('getLogin');
 });

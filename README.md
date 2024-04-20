@@ -9,4 +9,6 @@ Website dedicated to manage in an easy and functional way the matches and teams 
 
 ### Complements
 > PHPUnit for unit tests <br>
-> Blade
+> Blade <br>
+> Vite con Node.js
+> Tailwincss con Vite

@@ -16,16 +16,16 @@ class UserSeeder extends Seeder
     {
         User::create([
             'nombre' => 'Adminsito',
-            'correo' => 'admin@admin.com',
-            'clave' => Hash::make('admin1'),
-            'rol' => 'ADMIN'
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('admin1'),
+            'role' => 'ADMIN'
         ]);
 
         User::create([
             'nombre' => 'Presisito',
-            'correo' => 'presi@presi.com',
-            'clave' => Hash::make('presi1'),
-            'rol' => 'PRESIDENT'
+            'email' => 'presi@presi.com',
+            'password' => Hash::make('presi1'),
+            'role' => 'PRESIDENT'
         ]);
     }
 }

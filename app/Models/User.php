@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,8 +17,8 @@ class User extends Authenticatable
     */
     protected $fillable = [
         'nombre',
-        'correo',
-        'clave',
+        'email',
+        'password',
     ];
 
     /*
@@ -37,7 +36,7 @@ class User extends Authenticatable
     por ejemplo si se hace una api este metodo oculta estos datos
     */
     protected $hidden = [
-        'clave',
+        'password',
         'remember_token',
     ];
 
