@@ -34,7 +34,7 @@
     .show_floating_window_btn,
     .hide_floating_window_btn {
         display: block;
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 10px 20px;
         font-size: 16px;
         background-color: #007bff;
