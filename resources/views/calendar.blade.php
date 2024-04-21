@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    @component('_components.preload')
+    @component('_components._partials.preload')
     @endcomponent
 
     @component('_components.header')

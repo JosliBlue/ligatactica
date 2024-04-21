@@ -6,7 +6,6 @@
     @vite('resources/css/complements/all.css')
 
     @vite('resources/css/login.css')
-    @vite('resources/js/login.js')
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -15,13 +14,11 @@
 
 @section('content')
 
-    @if (!session('errorMessage'))
-        @component('_components.preload')
-        @endcomponent
-    @endif
+    @component('_components._partials.preload')
+    @endcomponent
 
     @if (session('errorMessage'))
-        @component('_components.sweetAlert')
+        @component('_components._partials.sweetAlert')
             @slot('icon', 'error')
             @slot('message')
                 {{ session('errorMessage') }}
@@ -33,7 +30,8 @@
     <div class="container" id="container">
         <div class="form-container sign-up">
             <p class="titulito">Sobre nosotros</p>
-            <p class="liga_description">En {{ env('NOMBRE_LIGA') }}, creemos que el éxito reside en el trabajo en equipo.<br><br>
+            <p class="liga_description">En {{ env('NOMBRE_LIGA') }}, creemos que el éxito reside en el trabajo en
+                equipo.<br><br>
                 Somos un grupo apasionado y
                 dedicado de personas comprometidas, unidos por el objetivo común de buena comunicacion para fomentar el
                 deporte sano entre conocidos y amigos<br><br>
@@ -82,5 +80,19 @@
             </div>
         </div>
     </div>
+<script>
+    const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
 
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
+
+</script>
 @endsection

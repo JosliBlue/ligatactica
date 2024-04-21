@@ -14,13 +14,13 @@
 @endsection
 
 @section('content')
-    @component('_components.preload')
+    @component('_components._partials.preload')
     @endcomponent
     @component('_components.header')
     @endcomponent
 
     @if (session('successMessage'))
-        @component('_components.sweetAlert')
+        @component('_components._partials.sweetAlert')
             @slot('icon', 'success')
             @slot('message')
                 {{ session('successMessage') }}
@@ -28,7 +28,7 @@
         @endcomponent
     @endif
     @if (session('errorMessage'))
-        @component('_components.sweetAlert')
+        @component('_components._partials.sweetAlert')
             @slot('icon', 'error')
             @slot('message')
                 {{ session('errorMessage') }}

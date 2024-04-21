@@ -4,7 +4,7 @@ nav-link => para los del header tablet y android
 -->
 
 <ul class="links">
-    <li><a href="{{ route('admin_home') }}" class="{{ $type }}">INICIO</a></li>
+    <li><a href="{{ route('admin_users') }}" class="{{ $type }}">USUARIOS</a></li>
     <li><a href="{{ route('admin_teams') }}" class="{{ $type }}">EQUIPOS</a></li>
     <li><a href="{{ route('admin_players') }}" class="{{ $type }}">JUGADORES</a></li>
     <li><a href="{{ route('admin_games') }}" class="{{ $type }}">PARTIDOS</a></li>
