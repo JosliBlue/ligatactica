@@ -24,26 +24,71 @@
         min-height: 150px;
         z-index: 1000;
         display: none;
+        animation: openWindow 0.3s ease-in-out forwards;
+        /* New animation for opening */
     }
 
-    .floating_window .message {
-        font-size: 24px;
-        margin-bottom: 20px;
+    .floating_window.closing {
+        /* New class for closing animation */
+        animation: closeWindow 0.3s ease-in-out forwards;
     }
 
-    .show_floating_window_btn,
-    .hide_floating_window_btn {
-        display: block;
-        margin: 0 auto;
-        padding: 10px 20px;
+    .show_floating_window_btn {
+        padding: 0.5rem 1rem;
+        background-color: transparent;
         font-size: 16px;
-        background-color: #007bff;
+        border: solid 1px #e8a107;
         color: #fff;
-        border: none;
         border-radius: 5px;
         cursor: pointer;
+        transition: all 0.1s ease-in-out;
     }
 
+    .hide_floating_window_btn {
+        padding: 0.5rem 1rem;
+        background-color: transparent;
+        font-size: 16px;
+        border: solid 1px #e80729;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .show_floating_window_btn:hover {
+        color: #e8a107;
+        transition: all 0.1s ease-in;
+    }
+
+    .hide_floating_window_btn:hover {
+        color: #e80729;
+        transition: all 0.1s ease-in;
+    }
+
+    /* New CSS animations */
+    @keyframes openWindow {
+        from {
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0;
+        }
+
+        to {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes closeWindow {
+        from {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        to {
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0;
+        }
+    }
 </style>
 
 <button class="show_floating_window_btn">{{ $textShow }}</button>
@@ -66,6 +111,8 @@
 
         showFloatingWindowBtns.forEach(function(showBtn, index) {
             showBtn.addEventListener("click", function() {
+                floatingWindows[index].classList.remove(
+                    "closing");
                 floatingWindows[index].style.display = "block";
                 overlays[index].style.display = "block";
             });
@@ -73,7 +120,7 @@
 
         hideFloatingWindowBtns.forEach(function(hideBtn, index) {
             hideBtn.addEventListener("click", function() {
-                floatingWindows[index].style.display = "none";
+                floatingWindows[index].classList.add("closing");
                 overlays[index].style.display = "none";
             });
         });

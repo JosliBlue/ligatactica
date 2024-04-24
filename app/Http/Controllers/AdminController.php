@@ -29,4 +29,22 @@ class AdminController extends Controller
         Session::flash('successMessage', 'Usuario creado con exito');
         return back();
     }
+
+    public function updateUser(Request $request, $id){
+        $user = User::find($id);
+
+        // Update user fields
+        $user->email = $request->new_email;
+        $user->nombre = $request->nombre;
+        $user->date_birth = $request->new_date_birth;
+        $user->role = $request->role;
+        $user->status = $request->status;
+
+        // Save the updated user
+        $user->save();
+
+        // Flash a success message (optional)
+        Session::flash('successMessage', 'Usuario actualizado con exito');
+        return back();
+    }
 }

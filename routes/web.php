@@ -23,6 +23,8 @@ Route::group(['middleware' => ['checkSession']], function () {
 Route::group(['middleware' => ['checkAdminRole']], function () {
     Route::get('/admin_users',[AdminController::class, 'getUsers'])->name('admin_users');
     Route::post('/new_user',[AdminController::class, 'newUser'])->name('admin_new_user');
+    Route::put('/update-user/{id}',[AdminController::class, 'updateUser'])->name('admin_update_user');
+
     Route::view('/admin_teams', 'admin.teams')->name('admin_teams');
     Route::view('/admin_players', 'admin.players')->name('admin_players');
     Route::view('/admin_games', 'admin.games')->name('admin_games');

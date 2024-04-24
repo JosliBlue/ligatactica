@@ -1,4 +1,4 @@
-select#role option {
+select option {
     padding: 20px;
     background-color: #000000;
     color: #ffffff;
@@ -19,7 +19,7 @@ form .grupo_inputs svg {
     font-size: 1.2rem;
     position: absolute;
     margin-left: 18px;
-    margin-top: 14px;
+    margin-top: 13px;
     color: #ffffff75;
     text-align: center;
     z-index: -1;
@@ -30,7 +30,16 @@ form .grupo_inputs input:focus {
     transition: all 0.1s ease-in;
 }
 
-.subsummary #submitButton {
+.container-movil{
+    display: none;
+}
+.container-movil .subsummary .show_floating_window_btn{
+    width: 100%;
+    margin: 0.5rem 0 1.5rem 0;;
+}
+
+
+.subsummary #submitButton, .btn_green {
     background-color: transparent;
     color: #fff;
     font-size: 0.8rem;
@@ -41,12 +50,14 @@ form .grupo_inputs input:focus {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-top: 10px;
-    cursor: no-drop;
     transition: all 0.2s ease-in;
-
 }
 
-#submitButton:hover {
+.subsummary #submitButton{
+    cursor: no-drop;
+}
+
+#submitButton:hover, .btn_green:hover {
     color: #E1FF57;
     transition: all 0.2s ease-in-out;
 }
@@ -60,6 +71,15 @@ form .grupo_inputs input:focus {
 @media(max-width:950px) {
     .grid-container{
         display: block;
+    }
+}
+
+@media(max-width:640px) {
+    .container-movil{
+        display: block;
+    }
+    .container-pc{
+        display: none;
     }
 }
 
