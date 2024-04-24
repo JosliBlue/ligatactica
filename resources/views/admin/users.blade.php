@@ -126,6 +126,19 @@
             @endslot
         @endcomponent
 
+        <section class="container_search">
+            <div class="flex justify-end mb-4">
+                <form action="{{ route('admin_users') }}" method="POST" class="flex w-full">
+                    @csrf
+                    <input type="text" id="search" name="search"
+                        class="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-primary inline-block w-full dark:bg-gray-800 dark:text-white"
+                        placeholder="Buscar usuarios...">
+                        <input type="submit"  value="Buscar"
+                        class="px-4 py-2 ml-2 bg-blue-500 text-white rounded-md focus:outline-none focus:ring focus:border-blue-700">
+                </form>
+            </div>
+        </section>
+
         <section class="container-pc mx-auto">
             <div class="flex flex-col">
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

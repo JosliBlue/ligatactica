@@ -8,13 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
+use function PHPUnit\Framework\isNull;
+
 class AdminController extends Controller
 {
+    private $usersPerPage;
+    public function __construct()
+    {
+        $this->usersPerPage = 10;
+    }
     public function getUsers()
     {
-        $users = User::paginate(10);
+        $users = User::paginate($this->usersPerPage);
 
-        return view('admin.users',compact('users'));
+        return view('admin.users', compact('users'));
     }
     public function newUser(CreateUserRequest $request)
     {
@@ -30,7 +37,8 @@ class AdminController extends Controller
         return back();
     }
 
-    public function updateUser(Request $request, $id){
+    public function updateUser(Request $request, $id)
+    {
         $user = User::find($id);
 
         // Update user fields
@@ -46,5 +54,20 @@ class AdminController extends Controller
         // Flash a success message (optional)
         Session::flash('successMessage', 'Usuario actualizado con exito');
         return back();
+    }
+
+    public function searchUsers(Request $request)
+    {
+        if (!$request->filled('search')) {
+            return redirect()->route('admin_users');
+        }
+        $users = User::where('nombre', 'LIKE', "%$request->search%")
+            ->orWhere('email', 'LIKE', "%$request->search%")
+            ->orWhere('role', 'LIKE', "%$request->search%")
+            ->orWhere('date_birth', 'LIKE', "%$request->search%")
+            ->orWhere('status', 'LIKE', "%$request->search%")
+            ->paginate($this->usersPerPage);
+
+        return view('admin.users', compact('users'));
     }
 }
