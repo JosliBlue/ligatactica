@@ -18,8 +18,9 @@ class AdminController extends Controller
     public function getUsers()
     {
         $users = User::paginate($this->usersPerPage);
+        $startNumber = ($users->currentPage() - 1) * $users->perPage() + 1;
 
-        return view('admin.users', compact('users'));
+        return view('admin.users', compact('users', 'startNumber'));
     }
     public function newUser(CreateUserRequest $request)
     {

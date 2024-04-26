@@ -6,6 +6,7 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
         z-index: 999;
         display: none;
         user-select: none;
@@ -25,12 +26,6 @@
         z-index: 1000;
         display: none;
         animation: openWindow 0.3s ease-in-out forwards;
-        /* New animation for opening */
-    }
-
-    .floating_window.closing {
-        /* New class for closing animation */
-        animation: closeWindow 0.3s ease-in-out forwards;
     }
 
     .show_floating_window_btn {
@@ -65,7 +60,6 @@
         transition: all 0.1s ease-in;
     }
 
-    /* New CSS animations */
     @keyframes openWindow {
         from {
             transform: translate(-50%, -50%) scale(0.9);
@@ -75,18 +69,6 @@
         to {
             transform: translate(-50%, -50%) scale(1);
             opacity: 1;
-        }
-    }
-
-    @keyframes closeWindow {
-        from {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-
-        to {
-            transform: translate(-50%, -50%) scale(0.9);
-            opacity: 0;
         }
     }
 </style>

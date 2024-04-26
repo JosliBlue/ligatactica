@@ -4,6 +4,10 @@ select option {
     color: #ffffff;
 }
 
+.tablita, .conteinersito{
+    border-radius: 7px;
+}
+
 form .grupo_inputs {
     margin-bottom: 30px;
     margin-top: 0px;
@@ -30,11 +34,8 @@ form .grupo_inputs input:focus {
     transition: all 0.1s ease-in;
 }
 
-.user_movil{
-    margin-bottom: 20px;
-    border-bottom: solid 1px #fff;
-    border-image-slice: 1;
-        border-image-source: linear-gradient(to right, #ffffff34, transparent, transparent);
+.numerito{
+    text-align: center;
 }
 
 .subsummary #submitButton, .btn_green {

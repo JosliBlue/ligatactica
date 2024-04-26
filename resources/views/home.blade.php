@@ -15,279 +15,8 @@
     @component('_components.header')
     @endcomponent
     <div class="contenido_padre">
-        <!-- ====== Blog Section Start -->
-        <section class="pt-20 pb-10 lg:pt-[50px] lg:pb-20 bg-dark dark:bg-dark">
-            <div class="container mx-auto">
-                <div class="flex flex-wrap justify-center -mx-4">
-                    <div class="w-full px-4">
-                        <div class="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
-                            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px] dark:text-white">
-                                Bienvenido {{ Auth::user()->nombre }}
-                            </h2>
-                            <p class="text-base text-body-color dark:text-dark-6">
-                                There are many variations of passages of Lorem Ipsum available
-                                but the majority have suffered alteration in some form.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap -mx-4">
-                    <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                        <div class="w-full mb-10">
-                            <div class="mb-8 overflow-hidden rounded">
-                                <img src="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-01.jpg"
-                                    alt="image" class="w-full" />
-                            </div>
-                            <div>
-                                <span
-                                    class="inline-block px-4 py-1 mb-5 text-xs font-semibold leading-loose text-center text-white rounded bg-primary">
-                                    Dec 22, 2023
-                                </span>
-                                <h3>
-                                    <a href="javascript:void(0)"
-                                        class="inline-block mb-4 text-xl font-semibold text-dark dark:text-white hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                                        Meet AutoManage, the best AI management tools
-                                    </a>
-                                </h3>
-                                <p class="text-base text-body-color dark:text-dark-6">
-                                    Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                        <div class="w-full mb-10">
-                            <div class="mb-8 overflow-hidden rounded">
-                                <img src="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-02.jpg"
-                                    alt="image" class="w-full" />
-                            </div>
-                            <div>
-                                <span
-                                    class="inline-block px-4 py-1 mb-5 text-xs font-semibold leading-loose text-center text-white rounded bg-primary">
-                                    Mar 15, 2023
-                                </span>
-                                <h3>
-                                    <a href="javascript:void(0)"
-                                        class="inline-block mb-4 text-xl font-semibold text-dark dark:text-white hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                                        How to earn more money as a wellness coach
-                                    </a>
-                                </h3>
-                                <p class="text-base text-body-color dark:text-dark-6">
-                                    Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                        <div class="w-full mb-10">
-                            <div class="mb-8 overflow-hidden rounded">
-                                <img src="https://cdn.tailgrids.com/2.0/image/application/images/blogs/blog-01/image-03.jpg"
-                                    alt="image" class="w-full" />
-                            </div>
-                            <div>
-                                <span
-                                    class="inline-block px-4 py-1 mb-5 text-xs font-semibold leading-loose text-center text-white rounded bg-primary">
-                                    Jan 05, 2023
-                                </span>
-                                <h3>
-                                    <a href="javascript:void(0)"
-                                        class="inline-block mb-4 text-xl font-semibold text-dark dark:text-white hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                                        The no-fuss guide to upselling and cross selling
-                                    </a>
-                                </h3>
-                                <p class="text-base text-body-color dark:text-dark-6">
-                                    Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </section>
-        <!-- ====== Blog Section End -->
-
-        <!-- component -->
-        <div class="text-white-900 bg-dark-200">
-            <div class="p-4 flex">
-                <h1 class="text-3xl">
-                    Users
-                </h1>
-            </div>
-            <div class="px-3 py-4 flex justify-center">
-                <table class="w-full text-md bg-dark shadow-md rounded mb-4">
-                    <tbody>
-                        <tr class="border-b">
-                            <th class="text-left p-3 px-5">Name</th>
-                            <th class="text-left p-3 px-5">Email</th>
-                            <th class="text-left p-3 px-5">Role</th>
-                            <th></th>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-500 bg-dark-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-orange-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-
-                        <tr class="border-b hover:bg-orange-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-orange-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-orange-100 bg-gray-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-orange-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-orange-100">
-                            <td class="p-3 px-5"><input type="text" value="user.name" class="bg-transparent"></td>
-                            <td class="p-3 px-5"><input type="text" value="user.email" class="bg-transparent"></td>
-                            <td class="p-3 px-5">
-                                <select value="user.role" class="bg-transparent">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                            </td>
-                            <td class="p-3 px-5 flex justify-end"><button type="button"
-                                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button><button
-                                    type="button"
-                                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="flow-root rounded-lg border border-gray-100 py-3 shadow-sm dark:border-gray-700">
-            <dl class="-my-3 divide-y divide-gray-100 text-sm dark:divide-gray-700">
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
-                    <dt class="font-medium text-gray-900 dark:text-white">Title</dt>
-                    <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">Mr</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
-                    <dt class="font-medium text-gray-900 dark:text-white">Name</dt>
-                    <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">John Frusciante</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
-                    <dt class="font-medium text-gray-900 dark:text-white">Occupation</dt>
-                    <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">Guitarist</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
-                    <dt class="font-medium text-gray-900 dark:text-white">Salary</dt>
-                    <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">$1,000,000+</dd>
-                </div>
-
-                <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
-                    <dt class="font-medium text-gray-900 dark:text-white">Bio</dt>
-                    <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo
-                        doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam
-                        aspernatur neque molestiae labore aliquam soluta architecto?
-                    </dd>
-                </div>
-            </dl>
-        </div>
-
-        <div class="flex flex-col items-center justify-center w-screen min-h-screen bg-dark-900 py-10">
-
-            <!-- Component Start -->
+        <div class="flex flex-col items-center justify-center w-auto min-h-screen bg-dark-900 py-10">
             <h1 class="text-lg text-gray-400 font-medium">2020-21 Season</h1>
             <div class="flex flex-col mt-6">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -366,23 +95,20 @@
                                             34
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-green-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-green-600" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-green-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-green-600" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-green-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-green-600" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
@@ -393,9 +119,8 @@
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-green-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-green-600" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
@@ -1204,30 +929,26 @@
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
@@ -1269,37 +990,32 @@
                                             22
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
@@ -1341,37 +1057,32 @@
                                             19
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
@@ -1413,9 +1124,8 @@
                                             16
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
@@ -1427,9 +1137,8 @@
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
@@ -1441,9 +1150,8 @@
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
@@ -1485,37 +1193,32 @@
                                             14
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
@@ -1557,37 +1260,32 @@
                                             11
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
@@ -1629,37 +1327,32 @@
                                             8
                                         </td>
                                         <td class="flex px-6 py-4 whitespace-nowrap">
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
@@ -1708,30 +1401,26 @@
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-red-500"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-red-500" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                                                     clip-rule="evenodd" />
                                             </svg>
-                                            <svg class="w-4 fill-current text-gray-400"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor">
+                                            <svg class="w-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd"
                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
                                                     clip-rule="evenodd" />
@@ -1745,20 +1434,16 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Component End  -->
-
         </div>
 
-        <!-- ====== Footer Section Start -->
         <footer class="relative z-10 bg-dark dark:bg-dark pt-20 pb-10 lg:pt-[120px] lg:pb-20">
             <div class="container mx-auto">
                 <div class="flex flex-wrap -mx-4">
                     <div class="w-full px-4 sm:w-2/3 lg:w-3/12">
                         <div class="w-full mb-10">
                             <a href="javascript:void(0)" class="mb-6 inline-block max-w-[160px]">
-                                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
-                                    alt="logo" class="max-w-full dark:hidden" />
+                                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg" alt="logo"
+                                    class="max-w-full dark:hidden" />
                                 <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
                                     alt="logo" class="max-w-full hidden dark:block" />
                             </a>
@@ -1966,7 +1651,5 @@
                 </span>
             </div>
         </footer>
-        <!-- ====== Footer Section End -->
-
     </div>
 @endsection
