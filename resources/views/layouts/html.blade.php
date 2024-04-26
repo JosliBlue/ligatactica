@@ -14,7 +14,7 @@
     </style>
 </head>
 
-<body class="hidden">
+<body>
     @yield('content')
 </body>
 

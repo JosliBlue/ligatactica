@@ -42,7 +42,7 @@ class SessionController extends Controller
 
     public function updateNombre(NombreRequest $request)
     {
-        $nuevoNombre = $request->nombre;
+        $nuevoNombre = $request->input('nombre');
         $request->user()->update([
             'nombre' => $nuevoNombre,
         ]);
@@ -51,14 +51,14 @@ class SessionController extends Controller
     }
     public function updatePassword(NewPassRequest $request)
     {
-        $currentPassword = $request->current_password;
-        $newPassword = $request->new_password;
+        $currentPassword = $request->input('current_password');
+        $newPassword = $request->input('new_password');
 
         if (!Hash::check($currentPassword, Auth::user()->password)) {
             Session::flash('errorMessage', 'Contraseña actual incorrecta');
             return back();
         }
-        if ($request->new_password != $request->pass_confirm) {
+        if ($request->input('new_password') != $request->input('pass_confirm')) {
             Session::flash('errorMessage', 'Confirme bien la contraseña por favor');
             return back();
         }

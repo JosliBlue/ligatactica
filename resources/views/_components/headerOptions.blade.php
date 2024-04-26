@@ -11,7 +11,7 @@ nav-link => para los del header tablet y android
 <div class="action_btns">
     @auth
         @if (auth()->user()->role == env('ROLE_ADMIN'))
-            <a class="action_btn abg" href="{{ route('admin_home') }}"><i class="fa-solid fa-briefcase"></i> ADMINISTRADOR</a>
+            <a class="action_btn abg" href="{{ route('admin_users') }}"><i class="fa-solid fa-briefcase"></i> ADMINISTRADOR</a>
         @endif
     @endauth
 
