@@ -30,14 +30,12 @@ form .grupo_inputs input:focus {
     transition: all 0.1s ease-in;
 }
 
-.container-movil{
-    display: none;
+.user_movil{
+    margin-bottom: 20px;
+    border-bottom: solid 1px #fff;
+    border-image-slice: 1;
+        border-image-source: linear-gradient(to right, #ffffff34, transparent, transparent);
 }
-.container-movil .subsummary .show_floating_window_btn{
-    width: 100%;
-    margin: 0.5rem 0 1.5rem 0;;
-}
-
 
 .subsummary #submitButton, .btn_green {
     background-color: transparent;
@@ -74,12 +72,4 @@ form .grupo_inputs input:focus {
     }
 }
 
-@media(max-width:640px) {
-    .container-movil{
-        display: block;
-    }
-    .container-pc{
-        display: none;
-    }
-}
 

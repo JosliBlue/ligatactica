@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-use function PHPUnit\Framework\isNull;
-
 class AdminController extends Controller
 {
     private $usersPerPage;
@@ -59,7 +57,7 @@ class AdminController extends Controller
     public function searchUsers(Request $request)
     {
         if (!$request->filled('search')) {
-            return redirect()->route('admin_users');
+            return back();
         }
         $users = User::where('nombre', 'LIKE', "%$request->search%")
             ->orWhere('email', 'LIKE', "%$request->search%")

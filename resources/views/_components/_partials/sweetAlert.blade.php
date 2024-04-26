@@ -39,6 +39,6 @@
         },
         showConfirmButton: false,
         timer: 4500,
-        timerProgressBar: true
+        timerProgressBar: false
     });
 </script>
