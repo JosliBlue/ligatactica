@@ -49,6 +49,11 @@ class User extends Authenticatable
         /*
         'date_birth' => 'date',
         'status' => 'bool',
-        */
-    ];
+        */];
+
+    public function team()
+    {
+        //Un user puede tener/estar en un equipo(pero hecho para que pueda tener mas)
+        return $this->hasOne(Team::class);
+    }
 }
