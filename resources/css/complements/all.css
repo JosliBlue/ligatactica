@@ -18,6 +18,13 @@ body {
     max-width: 80%;
     margin: auto;
 }
+/* Para los comboboxes */
+select option {
+    padding: 20px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
 
 @media (max-width: 950px) {
     .contenido_padre {

@@ -1,21 +1,13 @@
-select option {
-    padding: 20px;
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.tablita, .conteinersito{
-    border-radius: 7px;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    align-items: center;
 }
 
 form .grupo_inputs {
     margin-bottom: 30px;
     margin-top: 0px;
-}
-
-.boton_container.flex {
-    justify-content: flex-end;
-    align-self: flex-end;
 }
 
 form .grupo_inputs i,
@@ -34,11 +26,13 @@ form .grupo_inputs input:focus {
     transition: all 0.1s ease-in;
 }
 
-.numerito{
-    text-align: center;
+.boton_container.flex {
+    justify-content: flex-end;
+    align-self: flex-end;
 }
 
-.subsummary #submitButton, .btn_green {
+.subsummary .submitButton,
+.btn_green {
     background-color: transparent;
     color: #fff;
     font-size: 0.8rem;
@@ -52,25 +46,18 @@ form .grupo_inputs input:focus {
     transition: all 0.2s ease-in;
 }
 
-.subsummary #submitButton{
+.subsummary .submitButton.oculto {
     cursor: no-drop;
 }
 
-#submitButton:hover, .btn_green:hover {
+.submitButton:hover,
+.btn_green:hover {
     color: #E1FF57;
     transition: all 0.2s ease-in-out;
 }
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    align-items: center;
-}
 
 @media(max-width:950px) {
-    .grid-container{
+    .grid-container {
         display: block;
     }
 }
-
-

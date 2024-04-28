@@ -9,6 +9,14 @@ class Division extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'rango',
+        'tipo',
+        'genero',
+        'team_id',
+        'season_id'
+    ];
+
     public function team()
     {
         // Una division pertenece a una solo team
@@ -26,6 +34,4 @@ class Division extends Model
         // Una division puede tener/estar en varios player
         return $this->hasMany(Player::class);
     }
-
-    
 }

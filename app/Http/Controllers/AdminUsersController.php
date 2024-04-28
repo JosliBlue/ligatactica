@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class AdminController extends Controller
+class AdminUsersController extends Controller
 {
     private $usersPerPage;
     public function __construct()

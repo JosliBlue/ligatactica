@@ -1,0 +1,54 @@
+.logopreview{
+    text-align: center;
+}
+
+.container_new_team .grid-container{
+    grid-template-columns: 3fr 2fr;
+}
+
+.grupo_inputs.loguito i{
+    margin-top: 19px;
+}
+.grupo_inputs.usersito i{
+    margin-top: 11px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    color: #fff;
+    background-color: transparent;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 1px #e8a107;
+}
+input[type="file"]::-webkit-file-upload-button:hover{
+    color: #e8a107;
+}
+.submitButton:disabled {
+    cursor: no-drop;
+}
+
+.grupo_inputs.img_equipo {
+    background-image: url('/public/img/selloLiga.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grupo_inputs.img_equipo.with-image {
+    background-image: none;
+}
+
+
+.grupo_inputs.img_equipo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+

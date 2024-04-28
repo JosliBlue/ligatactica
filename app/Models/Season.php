@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'nombre',
+        'fecha_inicio',
+        'fecha_fin',
+        'status'
+    ];
 
     public function divisions()
     {

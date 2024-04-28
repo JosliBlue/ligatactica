@@ -38,8 +38,7 @@ class User extends Authenticatable
     por ejemplo si se hace una api este metodo oculta estos datos
     */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
     /*

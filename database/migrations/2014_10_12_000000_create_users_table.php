@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['ADMIN', 'PRESIDENT']);
-            $table->date('date_birth')->nullable(false);
-            $table->boolean('status')->nullable(false);
+            $table->date('date_birth')->notNull();
+            $table->boolean('status')->notNull();
             $table->timestamps();
         });
     }

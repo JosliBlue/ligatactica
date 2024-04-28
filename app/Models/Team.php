@@ -9,6 +9,13 @@ class Team extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nombre',
+        'url_foto',
+        'user_id',
+        'status'
+    ];
+
     public function user()
     {
         // Un team pertenece a un usuario

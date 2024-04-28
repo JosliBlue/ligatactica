@@ -1,0 +1,16 @@
+/* tablita bonita */
+.tablita,
+.conteinersito {
+    border-radius: 7px;
+}
+
+.numerito {
+    padding: 0 5px;
+    text-align: center;
+}
+
+@media(max-width:970px) {
+    .hideAndroid {
+        display: none;
+    }
+}

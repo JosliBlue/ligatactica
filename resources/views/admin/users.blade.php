@@ -5,15 +5,12 @@
 @section('imports')
     @vite('resources/css/complements/all.css')
     @vite('resources/css/complements/tailwind.css')
+    @vite('resources/css/_partials/formulario.css')
 
-    @vite('resources/css/admin_home.css')
+    @vite('resources/css/admin_users.css')
 @endsection
 
 @section('content')
-
-    @php
-        $counter = 1;
-    @endphp
 
     @component('_components._partials.preload')
     @endcomponent
@@ -125,7 +122,7 @@
 
                                 </div>
                                 <div class="boton_container flex">
-                                    <button id="submitButton" type="submit" disabled>Registrar</button>
+                                    <button class="submitButton oculto" id="submitButton" type="submit" disabled>Registrar</button>
                                 </div>
                             </form>
                         @endslot
@@ -161,16 +158,16 @@
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Nombre</th>
                                         <th scope="col"
-                                            class="fechNac px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="hideAndroid px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Correo Electrónico</th>
                                         <th scope="col"
-                                            class="fechNac px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="hideAndroid px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Rol</th>
                                         <th scope="col"
-                                            class="fechNac px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="hideAndroid px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Fecha de Nacimiento</th>
                                         <th scope="col"
-                                            class="fechNac px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             Estado</th>
                                         <th scope="col"
                                             class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -187,10 +184,10 @@
                                                 class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 {{ $user->nombre }}</td>
                                             <td
-                                                class="fechNac px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                class="hideAndroid px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 {{ $user->email }}</td>
                                             <td
-                                                class="fechNac px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                class="hideAndroid px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 @if ($user->role == 'PRESIDENT')
                                                     Presidente
                                                 @elseif($user->role == 'ADMIN')
@@ -201,9 +198,9 @@
                                             </td>
 
                                             <td
-                                                class="fechNac px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                class="hideAndroid px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                 {{ $user->date_birth }}</td>
-                                            <td class="fechNac px-4 py-4 text-sm font-medium whitespace-nowrap">
+                                            <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
                                                 @if ($user->status)
                                                     <div
                                                         class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">

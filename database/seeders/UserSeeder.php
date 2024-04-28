@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             'status' => false
         ]);
 
-        for ($i = 0; $i < 16; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             User::create([
                 'nombre' => Str::random(10), // Generate random name with 10 characters
                 'email' => Str::random(12) . '@' . Str::random(8) . '.com', // Random email with unique domain

@@ -159,12 +159,6 @@ a {
 }
 
 /* RESPONSIVE DESING */
-@media(max-width:970px) {
-
-    .fechNac {
-        display: none;
-    }
-}
 
 @media(max-width:950px) {
     .dropdown_menu .links {
