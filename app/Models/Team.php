@@ -18,8 +18,7 @@ class Team extends Model
 
     public function user()
     {
-        // Un team pertenece a un usuario
-        return $this->belongsToOne(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function divisions()

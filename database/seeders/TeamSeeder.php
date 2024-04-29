@@ -18,5 +18,15 @@ class TeamSeeder extends Seeder
             'url_foto' => 'cubequipo_20240428135152.png',
             'user_id' => 3 // referencia a adolfo lincon
         ]);
+        Team::create([
+            'nombre' => 'LA FLSMDFR',
+            'url_foto' => '',
+            'user_id' => 7 // referencia a adolfo lincon
+        ]);
+        Team::create([
+            'nombre' => 'Equipito',
+            'url_foto' => '',
+            'user_id' => 2 // referencia a adolfo lincon
+        ]);
     }
 }

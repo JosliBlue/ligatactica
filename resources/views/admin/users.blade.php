@@ -230,7 +230,7 @@
                                                     @slot('textShow', 'Editar')
                                                     @slot('textClose', 'Cerrar')
                                                     @slot('content')
-                                                        <div style="width: 400px">
+                                                        <div>
                                                             <form action="{{ route('admin_update_user', ['id' => $user->id]) }}"
                                                                 method="POST">
                                                                 @method('PUT')
@@ -306,7 +306,7 @@
                                                                             <option value="0"
                                                                                 {{ $user->status == 0 ? 'selected' : '' }}>
                                                                                 Desactivado</option>
-                                                                        </select><br><br>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
 
@@ -327,9 +327,9 @@
                     </div>
                 </div>
             </div>
+            {{ $users->links() }}
         </section>
 
-        {{ $users->links() }}
 
     </div>
     <script>

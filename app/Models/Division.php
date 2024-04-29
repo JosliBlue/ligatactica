@@ -20,13 +20,13 @@ class Division extends Model
     public function team()
     {
         // Una division pertenece a una solo team
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team_id');
     }
 
     public function season()
     {
         // Una division pertenece a una temporada
-        return $this->belongsTo(Season::class);
+        return $this->belongsTo(Season::class, 'season_id');
     }
 
     public function players()

@@ -1,6 +1,10 @@
 .logopreview{
     text-align: center;
 }
+.numerito {
+    padding: 0 5px;
+    text-align: center;
+}
 
 .container_new_team .grid-container{
     grid-template-columns: 3fr 2fr;
@@ -40,9 +44,24 @@ input[type="file"]::-webkit-file-upload-button:hover{
     justify-content: center;
     align-items: center;
 }
+.grupo_inputs.img_equipo.android{
+    background-image: none;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 200px;
+
+}
 
 .grupo_inputs.img_equipo.with-image {
     background-image: none;
+}
+.grupo_inputs.img_equipo.android.with-image {
+    background-image: none;
+}
+.grupo_inputs.img_equipo.android.with-imageDefault {
+    background-image: url('/public/img/selloLiga.png');
 }
 
 

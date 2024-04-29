@@ -50,6 +50,10 @@
         transition: all 0.1s ease-in-out;
     }
 
+    .content{
+        width: 400px;
+    }
+
     .show_floating_window_btn:hover {
         color: #e8a107;
         transition: all 0.1s ease-in;

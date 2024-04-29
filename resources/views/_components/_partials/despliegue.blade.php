@@ -17,7 +17,11 @@
         border-image-source: linear-gradient(to right, #ffffff34, transparent, transparent);
     }
 </style>
-<details>
+@php
+    $open = $open ?? false; // Establece $open en false por defecto si no se proporciona al utilizar el componente
+@endphp
+
+<details @if($open) open @endif>
     <summary>{{ $title }}</summary>
     <div class="subsummary">
         {{ $despliegue_content }}
