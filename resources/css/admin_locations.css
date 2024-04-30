@@ -1,0 +1,21 @@
+.grupo_inputs.img_location {
+    background-image: url('/public/img/siluetaEstadio.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.grupo_inputs.img_location img{
+    max-height: 100%;
+}
+
+.grupo_inputs.img_location.with-image {
+    background-image: none;
+}
+

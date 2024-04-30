@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminGameController;
+use App\Http\Controllers\AdminLocationController;
 use App\Http\Controllers\AdminPlayerController;
 use App\Http\Controllers\AdminTeamController;
 use App\Http\Controllers\AdminUserController;
@@ -45,6 +47,11 @@ Route::group(['middleware' => ['checkAdminRole']], function () {
     Route::get('/admin_players', [AdminPlayerController::class, 'getPlayers'])->name('admin_players');
     Route::post('/new_player', [AdminPlayerController::class, 'newPlayer'])->name('admin_new_player');
     Route::put('/update_player/{id}', [AdminPlayerController::class, 'updatePlayer'])->name('admin_update_player');
+
+    // pestaña estadios
+    Route::get('/admin_location', [AdminLocationController::class, 'getLocations'])->name('admin_locations');
+    Route::post('/new_location', [AdminLocationController::class, 'newLocation'])->name('admin_new_location');
+    Route::put('/update_location/{id}', [AdminLocationController::class, 'updateLocation'])->name('admin_update_location');
 
     // pestaña Partidos
     Route::view('/admin_games', 'admin.games')->name('admin_games');
