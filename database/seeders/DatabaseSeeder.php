@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamSeeder::class);
         $this->call(SeasonSeeder::class);
         $this->call(DivisionSeeder::class);
+        $this->call(PlayerSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

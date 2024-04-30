@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="columna-derecha">
                                         <div class="grupo_inputs img_equipo">
-                                            <img id="preview" src="{{ asset('img/selloLiga.png') }}" alt="Vista previa de la imagen">
+                                            <img id="preview">
                                         </div>
                                     </div>
 
@@ -160,7 +160,7 @@
                     @component('_components._partials.despliegue')
                         @slot('title', 'Ingresar nueva division')
                         @slot('despliegue_content')
-                            <form action="{{ route('admin_new_division') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin_new_division') }}" method="POST">
                                 @csrf
                                 <div class="grid-container">
                                     <div class="input-container">
@@ -276,169 +276,164 @@
 
         {{-- Tabla temporadas --}}
         <section class="container_show_seasons">
-            <section class="container_pc">
-                <div class="flex flex-col">
-                    <div class="overflow-x-auto">
-                        <div class="inline-block min-w-full py-2 align-middle">
-                            <div class="conteinersito overflow-hidden dark:border-gray-700 md:rounded-lg">
-                                <table class="tablita min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead class="bg-gray-50 dark:bg-gray-800">
+            <div class="flex flex-col">
+                <div class="overflow-x-auto">
+                    <div class="inline-block min-w-full py-2 align-middle">
+                        <div class="conteinersito overflow-hidden dark:border-gray-700 md:rounded-lg">
+                            <table class="tablita min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                    <tr>
+                                        <th scope="col">
+
+                                        </th>
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Temporada
+                                        </th>
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Fecha de Inicio
+                                        </th>
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Fecha de Fin
+                                        </th>
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Estado
+                                        </th>
+                                        <th scope="col">
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                    @foreach ($seasons as $season)
                                         <tr>
-                                            <th scope="col">
+                                            <td
+                                                class="numerito py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                {{ $startNumberSeasons++ }}</td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                {{ $season->nombre }}</td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                {{ $season->fecha_inicio }}</td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                {{ $season->fecha_fin }}</td>
+                                            <td
+                                                class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                @if ($season->status)
+                                                    <div
+                                                        class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+                                                        <svg width="12" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 3L4.5 8.5L2 6" stroke="currentColor"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+                                                        <h2 class="text-sm font-normal">Activado</h2>
+                                                    </div>
+                                                @else
+                                                    <div
+                                                        class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-red-500 bg-red-100/60 dark:bg-gray-800">
+                                                        <svg width="12" height="12" viewBox="0 0 12 12"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M3 3L9 9M3 9L9 3" stroke="currentColor"
+                                                                stroke-width="1.5" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+                                                        <h2 class="text-sm font-normal">Terminada</h2>
+                                                    </div>
+                                                @endif
+                                            </td>
 
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Temporada
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Fecha de Inicio
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Fecha de Fin
-                                            </th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Estado
-                                            </th>
-                                            <th scope="col">
+                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                                @component('_components._partials.floatingWindow')
+                                                    @slot('textShow', 'Editar')
+                                                    @slot('textClose', 'Cerrar')
+                                                    @slot('content')
+                                                        <div class="despliegue_seasons">
 
-                                            </th>
+                                                            <form id="seasonFormAndroid"
+                                                                action="{{ route('admin_update_season', ['id' => $season->id]) }}"
+                                                                method="POST">
+                                                                @method('PUT')
+                                                                @csrf
+                                                                <div class="input-container">
+                                                                    <label for="nombre"
+                                                                        class="mb-[10px] block text-base font-medium text-dark dark:text-white">Nombre:</label>
+                                                                    <div class="grupo_inputs">
+                                                                        <i class="fa-solid fa-person-chalkboard"></i>
+                                                                        <input required type="text" id="nombre"
+                                                                            name="nombre" placeholder="Nombre de la temporada"
+                                                                            value="{{ $season->nombre }}"
+                                                                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-container">
+                                                                    <label for="fecha_inicio"
+                                                                        class="mb-[10px] block text-base font-medium text-dark dark:text-white">Fecha
+                                                                        de
+                                                                        Inicio:</label>
+                                                                    <div class="grupo_inputs">
+                                                                        <i class="fa-regular fa-calendar-plus"></i>
+                                                                        <input required type="date" id="fecha_inicio_android"
+                                                                            name="fecha_inicio"
+                                                                            value="{{ $season->fecha_inicio }}"
+                                                                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-container">
+                                                                    <label for="fecha_fin"
+                                                                        class="mb-[10px] block text-base font-medium text-dark dark:text-white">Fecha
+                                                                        de
+                                                                        Fin:</label>
+                                                                    <div class="grupo_inputs">
+                                                                        <i class="fa-regular fa-calendar-minus"></i>
+                                                                        <input required type="date" id="fecha_fin_android"
+                                                                            name="fecha_fin" value="{{ $season->fecha_fin }}"
+                                                                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-container">
+                                                                    <label for="estado"
+                                                                        class="mb-[10px] block text-base font-medium text-dark dark:text-white">Estado:</label>
+                                                                    <div class="grupo_inputs">
+                                                                        <i class="fa-solid fa-key"></i>
+                                                                        <select name="status" required
+                                                                            class="role w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                            <option value="1"
+                                                                                {{ $season->status == 1 ? 'selected' : '' }}>
+                                                                                Activa</option>
+                                                                            <option value="0"
+                                                                                {{ $season->status == 0 ? 'selected' : '' }}>
+                                                                                Terminada</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="boton_container flex">
+                                                                    <button id="submitButtonSeasonAndroid" class="submitButton"
+                                                                        type="submit">Registrar</button>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    @endslot
+                                                @endcomponent
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                                        @foreach ($seasons as $season)
-                                            <tr>
-                                                <td
-                                                    class="numerito py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $startNumberSeasons++ }}</td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $season->nombre }}</td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $season->fecha_inicio }}</td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {{ $season->fecha_fin }}</td>
-                                                <td
-                                                    class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    @if ($season->status)
-                                                        <div
-                                                            class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M10 3L4.5 8.5L2 6" stroke="currentColor"
-                                                                    stroke-width="1.5" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
-                                                            </svg>
-                                                            <h2 class="text-sm font-normal">Activado</h2>
-                                                        </div>
-                                                    @else
-                                                        <div
-                                                            class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-red-500 bg-red-100/60 dark:bg-gray-800">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M3 3L9 9M3 9L9 3" stroke="currentColor"
-                                                                    stroke-width="1.5" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
-                                                            </svg>
-                                                            <h2 class="text-sm font-normal">Terminada</h2>
-                                                        </div>
-                                                    @endif
-                                                </td>
-
-                                                <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                    @component('_components._partials.floatingWindow')
-                                                        @slot('textShow', 'Editar')
-                                                        @slot('textClose', 'Cerrar')
-                                                        @slot('content')
-                                                            <div class="despliegue_seasons">
-
-                                                                <form id="seasonFormAndroid"
-                                                                    action="{{ route('admin_update_season', ['id' => $season->id]) }}"
-                                                                    method="POST">
-                                                                    @method('PUT')
-                                                                    @csrf
-                                                                    <div class="input-container">
-                                                                        <label for="nombre"
-                                                                            class="mb-[10px] block text-base font-medium text-dark dark:text-white">Nombre:</label>
-                                                                        <div class="grupo_inputs">
-                                                                            <i class="fa-solid fa-person-chalkboard"></i>
-                                                                            <input required type="text" id="nombre"
-                                                                                name="nombre"
-                                                                                placeholder="Nombre de la temporada"
-                                                                                value="{{ $season->nombre }}"
-                                                                                class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="input-container">
-                                                                        <label for="fecha_inicio"
-                                                                            class="mb-[10px] block text-base font-medium text-dark dark:text-white">Fecha
-                                                                            de
-                                                                            Inicio:</label>
-                                                                        <div class="grupo_inputs">
-                                                                            <i class="fa-regular fa-calendar-plus"></i>
-                                                                            <input required type="date"
-                                                                                id="fecha_inicio_android" name="fecha_inicio"
-
-                                                                                value="{{ $season->fecha_inicio }}"
-                                                                                class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="input-container">
-                                                                        <label for="fecha_fin"
-                                                                            class="mb-[10px] block text-base font-medium text-dark dark:text-white">Fecha
-                                                                            de
-                                                                            Fin:</label>
-                                                                        <div class="grupo_inputs">
-                                                                            <i class="fa-regular fa-calendar-minus"></i>
-                                                                            <input required type="date" id="fecha_fin_android"
-                                                                                name="fecha_fin"
-
-                                                                                value="{{ $season->fecha_fin }}"
-                                                                                class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="input-container">
-                                                                        <label for="estado" class="mb-[10px] block text-base font-medium text-dark dark:text-white">Estado:</label>
-                                                                        <div class="grupo_inputs">
-                                                                            <i class="fa-solid fa-key"></i>
-                                                                            <select name="status" required
-                                                                                class="role w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                                <option value="1"
-                                                                                    {{ $season->status == 1 ? 'selected' : '' }}>
-                                                                                    Activa</option>
-                                                                                <option value="0"
-                                                                                    {{ $season->status == 0 ? 'selected' : '' }}>
-                                                                                    Terminada</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-
-
-
-                                                                    <div class="boton_container flex">
-                                                                        <button id="submitButtonSeasonAndroid"
-                                                                            class="submitButton" type="submit">Registrar</button>
-                                                                    </div>
-                                                                </form>
-
-                                                            </div>
-                                                        @endslot
-                                                    @endcomponent
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             {{ $seasons->links() }}
         </section>
 

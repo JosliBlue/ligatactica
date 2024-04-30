@@ -1,0 +1,29 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.numerito {
+    padding: 0 5px;
+    text-align: center;
+}
+.grupo_inputs.img_player {
+    background-image: url('/public/img/siluetaFoto.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.grupo_inputs.img_player.android img{
+    max-height: 100px;
+}
+
+.grupo_inputs.img_player.with-image {
+    background-image: none;
+}

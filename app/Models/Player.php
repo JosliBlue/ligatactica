@@ -9,6 +9,16 @@ class Player extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cedula',
+        'nombres',
+        'apellidos',
+        'fecha_nacimiento',
+        'url_foto',
+        'division_id',
+        'numero_camiseta'
+    ];
+
     public function division()
     {
         // Un jugador pertenece a una sola division

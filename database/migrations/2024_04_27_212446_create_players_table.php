@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('cedula')->unique()->notNull();
-            $table->string('nombre')->notNull();
-            $table->string('segundo_nombre')->nullable();
-            $table->string('apellido')->notNull();
-            $table->string('segundo_apellido')->nullable();
+            $table->string('nombres')->notNull();
+            $table->string('apellidos')->notNull();
             $table->date('fecha_nacimiento')->notNull();
             $table->string('url_foto')->notNull();
-            $table->unsignedBigInteger('division_id');
-            $table->boolean('status')->default(true)->notNull();
+            $table->unsignedBigInteger('division_id')->nullable();
+            $table->unsignedInteger('numero_camiseta')->nullable();
             $table->timestamps();
 
             $table->foreign('division_id')->references('id')->on('divisions')->onUpdate('cascade')->onDelete('cascade');

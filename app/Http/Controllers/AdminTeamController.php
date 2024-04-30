@@ -11,7 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
-class AdminTeamsController extends Controller
+class AdminTeamController extends Controller
 {
     private $seasonsPerPage;
     private $teamsPerPage;
@@ -22,7 +22,7 @@ class AdminTeamsController extends Controller
         $this->seasonsPerPage = 5;
         $this->teamsPerPage = 5;
         $this->divisionsPerPage = 5;
-        $this->anchoLogos = 600; // pixeles
+        $this->anchoLogos = 600; // en px
     }
 
     public function getTeams()
