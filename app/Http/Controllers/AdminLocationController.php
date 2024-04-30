@@ -20,7 +20,9 @@ class AdminLocationController extends Controller
 
     public function getLocations()
     {
-        $locations = Location::paginate($this->locationsPerPage);
+        $locations = Location::orderByDesc('created_at')->paginate($this->locationsPerPage);
+
+
 
         return view(
             'admin.location',
@@ -94,10 +96,12 @@ class AdminLocationController extends Controller
                     storage_path('app/' . $rutaDestinoRedimensionada)
                 );
             }
+            $locationEdit->url_foto = $fileName;
         }
         $locationEdit->barrio = $request->barrio;
         $locationEdit->calle_1 = $request->calle_1;
         $locationEdit->calle_2 = $request->calle_2;
+
         $locationEdit->save();
 
         Session::flash('successMessage', 'Estadio actualizado con exito');

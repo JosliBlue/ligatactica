@@ -6,6 +6,7 @@ use App\Models\Season;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTeamRequest;
 use App\Models\Division;
+use App\Models\Player;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
@@ -28,8 +29,8 @@ class AdminTeamController extends Controller
     public function getTeams()
     {
         // para mostrar en las tablas
-        $teams = Team::orderBy('nombre')->paginate($this->teamsPerPage);
-        $divisions = Division::orderByDesc('id')->paginate($this->divisionsPerPage);
+        $teams = Team::paginate($this->teamsPerPage);
+        $divisions = Division::paginate($this->divisionsPerPage);
         $seasons = Season::orderByDesc('id')->paginate($this->seasonsPerPage);
 
 
@@ -45,7 +46,6 @@ class AdminTeamController extends Controller
         $generos = ['MASCULINO', 'FEMENINO'];
 
         // Para mostrar en los inputs de nueva division
-        $activeTeams = Team::where('status', true)->get();
         $activeSeasons = Season::where('status', true)
             ->whereDate('fecha_inicio', '>=', now())->get();
 
@@ -59,7 +59,6 @@ class AdminTeamController extends Controller
                     'seasons',
                     //------
                     'users',
-                    'activeTeams',
                     'activeSeasons',
                     'tiposJuego',
                     'rangos',
@@ -77,16 +76,27 @@ class AdminTeamController extends Controller
     public function newSeason(Request $request)
     {
         // control para una unica season a la vez, sostenible a cambios
-        $ultimaTemporada = Season::latest('fecha_fin')->first();
-        if ($ultimaTemporada && $request->fecha_inicio <= $ultimaTemporada->fecha_fin) {
+        // Verificar si hay una temporada activa
+        $temporadaActiva = Season::where('status', 1)->first();
+
+        // Si hay una temporada activa y el estado de la nueva temporada es 1
+        if ($temporadaActiva && $request->status == 1) {
+            Session::flash('errorMessage', 'Ya existe una temporada activa');
+            return redirect()->back();
+        }
+
+        // Si la fecha de inicio de la nueva temporada es anterior a la fecha de finalización de la última temporada
+        if ($temporadaActiva && $request->fecha_inicio <= $temporadaActiva->fecha_fin) {
             Session::flash('errorMessage', 'Una temporada no puede iniciar antes de que acabe la actual');
             return redirect()->back();
         }
 
+        // Crear la nueva temporada con el estado proporcionado
         Season::create([
             'nombre' => $request->nombre,
             'fecha_inicio' => $request->fecha_inicio,
-            'fecha_fin' => $request->fecha_fin
+            'fecha_fin' => $request->fecha_fin,
+            'status' => $request->status // Asegúrate de que este valor venga del formulario
         ]);
 
         // Redireccionar con un mensaje de éxito
@@ -125,6 +135,21 @@ class AdminTeamController extends Controller
 
     public function newDivision(Request $request)
     {
+        // Verificar si ya existe una división con los mismos datos
+        $existingDivision = Division::where('rango', $request->rango)
+            ->where('tipo', $request->tipo)
+            ->where('genero', $request->genero)
+            ->where('team_id', $request->team_id)
+            ->where('season_id', $request->season_id)
+            ->first();
+
+        if ($existingDivision) {
+            // Si existe una división con los mismos datos, mostrar un mensaje de error
+            Session::flash('errorMessage', 'Ya existe una división con estos datos.');
+            return redirect()->back();
+        }
+
+        // Si no existe una división con los mismos datos, crear la nueva división
         Division::create([
             'rango' => $request->rango,
             'tipo' => $request->tipo,
@@ -132,7 +157,9 @@ class AdminTeamController extends Controller
             'team_id' => $request->team_id,
             'season_id' => $request->season_id
         ]);
-        Session::flash('successMessage', 'Division creada con éxito');
+
+        // Redireccionar con un mensaje de éxito
+        Session::flash('successMessage', 'División creada con éxito');
         return redirect()->route('admin_teams');
     }
 
@@ -144,6 +171,37 @@ class AdminTeamController extends Controller
         $seasonEdit->fecha_inicio = $request->fecha_inicio;
         $seasonEdit->fecha_fin = $request->fecha_fin;
         $seasonEdit->status = $request->status;
+
+        if ($request->status == 0) {
+            $divisiones = Division::where('season_id', $id)->get();
+
+            // Establecer el estado de todas las divisiones a 0
+            foreach ($divisiones as $division) {
+                $division->status = 0;
+                $division->save();
+                $jugadores = Player::where('division_id', $division->id)->get();
+
+                // Desactivar los partidos de la división
+                $partidos = $division->games;
+                foreach ($partidos as $partido) {
+                    $partido->status = 0;
+                    $partido->save();
+                }
+                // Eliminar la referencia de la división para cada jugador
+                foreach ($jugadores as $jugador) {
+                    $jugador->division_id = null;
+                    $jugador->save();
+                }
+            }
+        } else {
+            $divisiones = Division::where('season_id', $id)->get();
+
+            // Establecer el estado de todas las divisiones a 0
+            foreach ($divisiones as $division) {
+                $division->status = 1;
+                $division->save();
+            }
+        }
 
         $seasonEdit->save();
 
@@ -176,15 +234,11 @@ class AdminTeamController extends Controller
 
             Storage::delete('public/images/teams/' . $teamEdit->url_foto);
 
-            $teamEdit->nombre = $request->nombre_equipo;
             $teamEdit->url_foto = $fileName;
-            $teamEdit->status = $request->status;
-            $teamEdit->save();
-        } else {
-            $teamEdit->nombre = $request->nombre_equipo;
-            $teamEdit->status = $request->status;
-            $teamEdit->save();
         }
+        $teamEdit->nombre = $request->nombre_equipo;
+        $teamEdit->user_id = $request->user_id;
+        $teamEdit->save();
         Session::flash('successMessage', 'Equipo actualizado con exito');
         return back();
     }
@@ -201,6 +255,16 @@ class AdminTeamController extends Controller
         $divisionEdit->status = $request->status;
 
         $divisionEdit->save();
+
+        if ($request->status == 0) {
+            // Liberar todos los jugadores asociados a esta división
+            $jugadores = Player::where('division_id', $divisionEdit->id)->get();
+
+            foreach ($jugadores as $jugador) {
+                $jugador->division_id = null;
+                $jugador->save();
+            }
+        }
 
         Session::flash('successMessage', 'Division actualizada con exito');
         return back();

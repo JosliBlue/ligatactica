@@ -18,9 +18,18 @@ class AdminUserController extends Controller
     public function getUsers()
     {
         $users = User::paginate($this->usersPerPage);
-        $startNumber = ($users->currentPage() - 1) * $users->perPage() + 1;
 
-        return view('admin.users', compact('users', 'startNumber'));
+        return view(
+            'admin.users',
+            array_merge(
+                compact(
+                    'users',
+                ),
+                [
+                    'startNumber' => ($users->currentPage() - 1) * $users->perPage() + 1
+                ]
+            )
+        );
     }
     public function newUser(CreateUserRequest $request)
     {
@@ -67,6 +76,16 @@ class AdminUserController extends Controller
             ->orWhere('status', 'LIKE', "%$request->search%")
             ->paginate($this->usersPerPage);
 
-        return view('admin.users', compact('users'));
+            return view(
+                'admin.users',
+                array_merge(
+                    compact(
+                        'users',
+                    ),
+                    [
+                        'startNumber' => ($users->currentPage() - 1) * $users->perPage() + 1
+                    ]
+                )
+            );
     }
 }

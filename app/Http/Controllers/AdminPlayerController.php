@@ -82,9 +82,9 @@ class AdminPlayerController extends Controller
 
 
         if ($request->hasFile('imagen')) {
-            Storage::delete('public/images/players/' . $playerEdit->url_foto);
+
             $imageSize = $request->file('imagen')->getSize();
-            $fileName = $playerEdit->url_foto;
+            $fileName = $request->cedula . '_' . date('YmdHis') . '.png';
 
             if ($imageSize <= 0.5 * 1024 * 1024) { // Menor o igual a 0.5 MB
                 $request->file('imagen')->storeAs('public/images/players', $fileName);
@@ -101,12 +101,15 @@ class AdminPlayerController extends Controller
                     storage_path('app/' . $rutaDestinoRedimensionada)
                 );
             }
+            Storage::delete('public/images/players/' . $playerEdit->url_foto);
+            $playerEdit->url_foto = $fileName;
+        }else{
+            $playerEdit->fecha_nacimiento = $request->fecha_nacimiento;
+            $playerEdit->nombres = $request->nombres;
+            $playerEdit->apellidos = $request->apellidos;
+            $playerEdit->division_id = $request->division_id == -99 ? null : $request->division_id;
+            $playerEdit->numero_camiseta = $request->numero_camiseta;
         }
-        $playerEdit->fecha_nacimiento = $request->fecha_nacimiento;
-        $playerEdit->nombres = $request->nombres;
-        $playerEdit->apellidos = $request->apellidos;
-        $playerEdit->division_id = $request->division_id == -99 ? null : $request->division_id;
-        $playerEdit->numero_camiseta = $request->numero_camiseta;
         $playerEdit->save();
 
         Session::flash('successMessage', 'Jugador actualizado con exito');

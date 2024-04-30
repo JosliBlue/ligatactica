@@ -15,11 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(UserSeeder::class);
-        $this->call(TeamSeeder::class);
         $this->call(SeasonSeeder::class);
+        $this->call(TeamSeeder::class);
+        /*
         $this->call(DivisionSeeder::class);
         $this->call(PlayerSeeder::class);
         $this->call(LocationSeeder::class);
+        */
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

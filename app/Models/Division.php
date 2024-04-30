@@ -34,4 +34,9 @@ class Division extends Model
         // Una division puede tener/estar en varios player
         return $this->hasMany(Player::class);
     }
+
+    public function games()
+    {
+        return $this->hasMany(Game::class, 'division_1_id')->orWhere('division_2_id', $this->id);
+    }
 }

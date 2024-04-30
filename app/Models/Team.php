@@ -13,7 +13,6 @@ class Team extends Model
         'nombre',
         'url_foto',
         'user_id',
-        'status'
     ];
 
     public function user()

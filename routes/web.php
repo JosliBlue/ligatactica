@@ -15,8 +15,8 @@ Route::get('/logOut', [SessionController::class, 'logOut'])->name('logOut');
 // autenticated users routes (presidents and admins)
 Route::group(['middleware' => ['checkSession']], function () {
     Route::view('/home', 'home')->name('home');
-    Route::view('/my_team', 'my_team')->name('my_team');
     Route::view('/calendar', 'calendar')->name('calendar');
+    Route::view('/my_team', 'my_team')->name('my_team')->middleware('checkTeam');
     Route::view('/profile', 'profile')->name('profile');
 
     Route::put('/updatePassword', [SessionController::class, 'updatePassword'])->name('updatePassword');
@@ -54,7 +54,9 @@ Route::group(['middleware' => ['checkAdminRole']], function () {
     Route::put('/update_location/{id}', [AdminLocationController::class, 'updateLocation'])->name('admin_update_location');
 
     // pestaña Partidos
-    Route::view('/admin_games', 'admin.games')->name('admin_games');
+    Route::get('/admin_games', [AdminGameController::class, 'getGames'])->name('admin_games');
+    Route::post('/new_game', [AdminGameController::class, 'newGame'])->name('admin_new_game');
+    Route::put('/update_game/{id}', [AdminGameController::class, 'updateGame'])->name('admin_update_game');
 });
 
 // if you enter a non-existing route you will return to login

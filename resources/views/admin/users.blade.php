@@ -144,7 +144,7 @@
             </div>
         </section>
 
-        <section class="container_pc">
+        <section class="container_show_users">
             <div class="flex flex-col">
                 <div class="overflow-x-auto">
                     <div class="inline-block min-w-full py-2 align-middle">

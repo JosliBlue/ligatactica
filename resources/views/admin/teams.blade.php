@@ -46,6 +46,7 @@
                         @slot('despliegue_content')
                             <form id="seasonForm" action="{{ route('admin_new_season') }}" method="POST">
                                 @csrf
+                                <input type="hidden" name="status" value="1">
                                 <div class="input-container">
                                     <label for="nombre"
                                         class="mb-[10px] block text-base font-medium text-dark dark:text-white">Nombre:</label>
@@ -79,7 +80,7 @@
 
 
                                 <div class="boton_container flex">
-                                    <button id="submitButtonSeason" class="submitButton" type="submit">Registrar</button>
+                                    <button id="submitButtonSeason" class="submitButton btm_green" type="submit">Registrar</button>
                                 </div>
                             </form>
                         @endslot
@@ -171,8 +172,9 @@
                                             <i class="fa-solid fa-users"></i>
                                             <select name="team_id" required
                                                 class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                @foreach ($activeTeams as $teamOne)
-                                                    <option value="{{ $teamOne->id }}">{{ $teamOne->nombre }}</option>
+                                                <option value="">-- Selecciona un equipo --</option>
+                                                @foreach ($teams as $team)
+                                                    <option value="{{ $team->id }}">{{ $team->nombre }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -185,6 +187,7 @@
                                             <i class="fa-solid fa-person-chalkboard"></i>
                                             <select name="season_id" id="" required
                                                 class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                <option value="">-- Selecciona una temporada --</option>
                                                 @foreach ($activeSeasons as $season)
                                                     <option value="{{ $season->id }}">
                                                         @php
@@ -333,7 +336,7 @@
                                                                 stroke-width="1.5" stroke-linecap="round"
                                                                 stroke-linejoin="round" />
                                                         </svg>
-                                                        <h2 class="text-sm font-normal">Activado</h2>
+                                                        <h2 class="text-sm font-normal">Actual</h2>
                                                     </div>
                                                 @else
                                                     <div
@@ -418,7 +421,7 @@
 
                                                                 <div class="boton_container flex">
                                                                     <button id="submitButtonSeasonAndroid" class="submitButton"
-                                                                        type="submit">Registrar</button>
+                                                                        type="submit" class="btn_green">Actualizar temporada</button>
                                                                 </div>
                                                             </form>
 
@@ -470,10 +473,8 @@
                                                 Presidente</th>
                                             <th scope="col"
                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Estado</th>
-                                            <th scope="col"
-                                                class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            </th>
+                                                </th>
+                                              </th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -496,31 +497,7 @@
                                                     class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                     {{ $team->user->nombre }}
                                                 </td>
-                                                <td class=" py-4 text-sm font-medium whitespace-nowrap">
-                                                    @if ($team->status)
-                                                        <div
-                                                            class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M10 3L4.5 8.5L2 6" stroke="currentColor"
-                                                                    stroke-width="1.5" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
-                                                            </svg>
-                                                            <h2 class="text-sm font-normal">Activo</h2>
-                                                        </div>
-                                                    @else
-                                                        <div
-                                                            class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-red-500 bg-red-100/60 dark:bg-gray-800">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M3 3L9 9M3 9L9 3" stroke="currentColor"
-                                                                    stroke-width="1.5" stroke-linecap="round"
-                                                                    stroke-linejoin="round" />
-                                                            </svg>
-                                                            <h2 class="text-sm font-normal">Inactivo</h2>
-                                                        </div>
-                                                    @endif
-                                                </td>
+
                                                 <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                     @component('_components._partials.floatingWindow')
                                                         @slot('textShow', 'Editar')
@@ -549,17 +526,34 @@
                                                                                 class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
                                                                         </div>
                                                                     </div>
-                                                                    <div class="input-container">
-                                                                        <label
-                                                                            class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                                                                            Nombre del equipo
-                                                                        </label>
-                                                                        <div class="grupo_inputs">
-                                                                            <i class="fa-solid fa-users"></i>
-                                                                            <input type="text" name="nombre_equipo"
-                                                                                value="{{ $team->nombre }}" id="nombre"
-                                                                                placeholder="Ingresa el nombre del equipo" required
-                                                                                class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                                                                    <div class="grid-containerAndroid">
+                                                                        <div class="input-container">
+                                                                            <label
+                                                                                class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                                                                                Nombre del equipo
+                                                                            </label>
+                                                                            <div class="grupo_inputs">
+                                                                                <i class="fa-solid fa-users"></i>
+                                                                                <input type="text" name="nombre_equipo"
+                                                                                    value="{{ $team->nombre }}" id="nombre"
+                                                                                    placeholder="Ingresa el nombre del equipo" required
+                                                                                    class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="input-container">
+                                                                            <label class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                                                                                Presidente
+                                                                            </label>
+                                                                            <div class="grupo_inputs usersito">
+                                                                                <i class="fa-solid fa-user"></i>
+                                                                                <select name="user_id" id="user_id" required
+                                                                                    class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                                    <option value="{{ $team->user->id }}">{{ $team->user->nombre }}</option>
+                                                                                    @foreach ($users as $user)
+                                                                                        <option value="{{ $user->id }}">{{ $user->nombre }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="input-container">
@@ -582,7 +576,7 @@
                                                                     </div>
                                                                     <div class="boton_container flex">
                                                                         <button id="submitButtonTeam" class="submitButton"
-                                                                            type="submit">Registrar</button>
+                                                                            type="submit">Actualizar equipo</button>
                                                                     </div>
                                                                 </form>
 
@@ -627,7 +621,7 @@
                                             <th scope="col"></th>
                                             <th scope="col"
                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                Nombre del Equipo</th>
+                                                Equipo</th>
                                             <th scope="col"
                                                 class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                 Categoria</th>
@@ -729,10 +723,10 @@
                                                                         <i class="fa-solid fa-users"></i>
                                                                         <select name="team_id" required
                                                                             class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                            @foreach ($activeTeams as $teamOne)
-                                                                                <option value="{{ $teamOne->id }}"
-                                                                                    @if ($division->team->id == $teamOne->id) selected @endif>
-                                                                                    {{ $teamOne->nombre }}</option>
+                                                                            @foreach ($teams as $team)
+                                                                                <option value="{{ $team->id }}"
+                                                                                    @if ($division->team->id == $team->id) selected @endif>
+                                                                                    {{ $team->nombre }}</option>
                                                                             @endforeach
                                                                         </select>
                                                                     </div>
@@ -778,37 +772,39 @@
 
                                                                 </div>
 
-                                                                <div class="input-container">
-                                                                    <label
-                                                                        class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                                                                        Tipo de juego
-                                                                    </label>
-                                                                    <div class="grupo_inputs">
-                                                                        <i class="fa-solid fa-person-running"></i>
-                                                                        <select name="tipo" required
-                                                                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                            @foreach ($tiposJuego as $tipo)
-                                                                                <option value="{{ $tipo }}">
-                                                                                    {{ $tipo }}</option>
-                                                                            @endforeach
-                                                                        </select>
+                                                                <div class="grid-containerAndroid">
+                                                                    <div class="input-container">
+                                                                        <label
+                                                                            class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                                                                            Tipo de juego
+                                                                        </label>
+                                                                        <div class="grupo_inputs">
+                                                                            <i class="fa-solid fa-person-running"></i>
+                                                                            <select name="tipo" required
+                                                                                class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                                @foreach ($tiposJuego as $tipo)
+                                                                                    <option value="{{ $tipo }}">
+                                                                                        {{ $tipo }}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="input-container">
-                                                                    <label
-                                                                        class="mb-[10px] block text-base font-medium text-dark dark:text-white">
-                                                                        Categoria
-                                                                    </label>
-                                                                    <div class="grupo_inputs">
-                                                                        <i class="fa-solid fa-dumbbell"></i>
-                                                                        <select name="rango" required
-                                                                            class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
-                                                                            @foreach ($rangos as $rango)
-                                                                                <option value="{{ $rango }}">
-                                                                                    {{ $rango }}</option>
-                                                                            @endforeach
-                                                                        </select>
+                                                                    <div class="input-container">
+                                                                        <label
+                                                                            class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                                                                            Categoria
+                                                                        </label>
+                                                                        <div class="grupo_inputs">
+                                                                            <i class="fa-solid fa-dumbbell"></i>
+                                                                            <select name="rango" required
+                                                                                class="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-[10px] pr-3 pl-12 text-dark-6 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2">
+                                                                                @foreach ($rangos as $rango)
+                                                                                    <option value="{{ $rango }}">
+                                                                                        {{ $rango }}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
 
@@ -850,7 +846,7 @@
 
                                                                 <div class="boton_container flex">
                                                                     <button class="submitButton" id="submitButtonDivision"
-                                                                        type="submit">Actualizar</button>
+                                                                        type="submit">Actualizar Division</button>
                                                                 </div>
 
                                                             </form>

@@ -1,3 +1,9 @@
+.grid-containerAndroid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    align-items: center;
+}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -31,7 +37,7 @@ form .grupo_inputs input:focus {
     align-self: flex-end;
 }
 
-.subsummary .submitButton,
+.submitButton,
 .btn_green {
     background-color: transparent;
     color: #fff;
@@ -44,9 +50,10 @@ form .grupo_inputs input:focus {
     text-transform: uppercase;
     margin-top: 10px;
     transition: all 0.2s ease-in;
+    width: 100%;
 }
 
-.subsummary .submitButton.oculto {
+.submitButton.oculto {
     cursor: no-drop;
 }
 

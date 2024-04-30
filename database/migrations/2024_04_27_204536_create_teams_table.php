@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nombre')->notNull();
             $table->string('url_foto')->notNull();
             $table->unsignedBigInteger('user_id')->unique()->notNull();
-            $table->boolean('status')->default(true)->notNull();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');

@@ -6,12 +6,18 @@ nav-link => para los del header tablet y android
 <ul class="links">
     <li><a href="{{ route('home') }}" class="{{ $type }}">INICIO</a></li>
     <li><a href="{{ route('calendar') }}" class="{{ $type }}">CALENDARIO</a></li>
-    <li><a href="{{ route('my_team') }}" class="{{ $type }}">MI EQUIPO</a></li>
+
+    @if (Auth::user()->team)
+        <li><a href="{{ route('my_team') }}" class="{{ $type }}">MI EQUIPO</a></li>
+    @endif
+
+
 </ul>
 <div class="action_btns">
     @auth
         @if (auth()->user()->role == env('ROLE_ADMIN'))
-            <a class="action_btn abg" href="{{ route('admin_users') }}"><i class="fa-solid fa-briefcase"></i> ADMINISTRADOR</a>
+            <a class="action_btn abg" href="{{ route('admin_users') }}"><i class="fa-solid fa-briefcase"></i>
+                ADMINISTRADOR</a>
         @endif
     @endauth
 

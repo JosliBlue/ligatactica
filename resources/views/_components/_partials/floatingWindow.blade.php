@@ -40,6 +40,7 @@
     }
 
     .hide_floating_window_btn {
+        width: 100%;
         padding: 0.5rem 1rem;
         background-color: transparent;
         font-size: 16px;
@@ -48,6 +49,7 @@
         border-radius: 5px;
         cursor: pointer;
         transition: all 0.1s ease-in-out;
+        margin: 10px 0 1px 0;
     }
 
     .content{

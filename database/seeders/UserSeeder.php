@@ -3,11 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
+use Faker\Factory as Faker;
 
 class UserSeeder extends Seeder
 {
@@ -30,7 +28,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin2'),
             'role' => 'ADMIN',
             'date_birth' => '2002-11-26',
-            'status' => true
+            'status' => false
         ]);
 
         User::create([
@@ -50,23 +48,17 @@ class UserSeeder extends Seeder
             'status' => false
         ]);
 
-        for ($i = 0; $i < 3; $i++) {
+        $faker = Faker::create();
+        foreach (range(1, 11) as $index) {
+            $fechaNacimiento = $faker->dateTimeBetween('-100 years', '-17 years')->format('Y-m-d');
             User::create([
-                'nombre' => Str::random(10), // Generate random name with 10 characters
-                'email' => Str::random(12) . '@' . Str::random(8) . '.com', // Random email with unique domain
-                'password' => Hash::make(Str::random(16)), // Secure random password with 16 characters
-                'role' => rand(0, 1) === 0 ? 'ADMIN' : 'PRESIDENT', // Random role (ADMIN or PRESIDENT)
-                'date_birth' => Carbon::now()->subYears(rand(18, 65))->format('Y-m-d'), // Random birthdate between 18-65 years ago
-                'status' => rand(0, 1) === 0 ? true : false, // Random status (active or inactive)
+                'nombre' => $faker->firstName,
+                'email' => $faker->unique()->safeEmail,
+                'password' => Hash::make('password'),
+                'role' => $faker->randomElement(['ADMIN', 'PRESIDENT']),
+                'date_birth' => $fechaNacimiento,
+                'status' => $faker->boolean()
             ]);
         }
-        User::create([
-            'nombre' => 'Elion Musk',
-            'email' => 'Elionsito@x.com',
-            'password' => Hash::make('admin3'),
-            'role' => 'ADMIN',
-            'date_birth' => '1955-10-28',
-            'status' => false
-        ]);
     }
 }
